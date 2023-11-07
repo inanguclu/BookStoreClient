@@ -1,6 +1,6 @@
 <div class="card mt-3">
     <div class="card-header d-flex justify-content-between align-items-center">
-        <h5>Home Page</h5>
+        <h5>{{'homePage'|translate}}</h5>
         <div>
             <a routerLink="/">Home</a>
         </div>
@@ -22,10 +22,8 @@
                     <input type="text" class="form-control" placeholder="{{'search'|translate}}">
                 </div>
                 <ul class="categories">
-                    <li>{{'adventure'|translate}}</li>
-                    <li>{{'software'|translate}}</li>
-                    <li>{{'love'|translate}}</li>
-                    <li>{{'detective'|translate}}</li>
+                    <li>{{'allCategories'|translate}}</li>
+                    <li *ngFor="let c of categories">{{c.name}}</li>
                 </ul>
             </div>
         </div>
