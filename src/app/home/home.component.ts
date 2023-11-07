@@ -18,8 +18,12 @@ export class HomeComponent {
     this.getAll();
     this.getCategories();
   }
+  changeCategory(categoryId:number |null= null){
+    this.request.categoryId=categoryId
 
-  getAll(pageNumber:any=1){
+  }
+
+  getAll(pageNumber:any|number=1){
     this.request.pageNumber=pageNumber;
     this.http
     .post(`https://localhost:7127/api/Books/GetAll/`,this.request)
