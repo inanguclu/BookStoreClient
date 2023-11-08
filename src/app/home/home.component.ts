@@ -20,6 +20,7 @@ export class HomeComponent {
   }
   changeCategory(categoryId:number |null= null){
     this.request.categoryId=categoryId
+    this.getAll(1);
 
   }
 
