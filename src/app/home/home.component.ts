@@ -12,6 +12,7 @@ export class HomeComponent {
   categories:any=[];
   pageNumbers:Number[]=[];
   request:RequestModel=new RequestModel();
+  searchCategory:string="";
 
   
   constructor(private http:HttpClient){

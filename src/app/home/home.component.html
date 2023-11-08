@@ -19,11 +19,11 @@
                     <span class="input-group-text" id="basic-addon1">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </span>
-                    <input type="text" class="form-control" placeholder="{{'search'|translate}}">
+                    <input [(ngModel)]="searchCategory" type="text" class="form-control" placeholder="{{'search'|translate}}">
                 </div>
                 <ul class="categories">
                     <li (click)="changeCategory(null)" [ngClass]="request.categoryId===null?'active':''">{{'allCategories'|translate}}</li>
-                    <li (click)="changeCategory(c.id)" [ngClass]="request.categoryId===c.id?'active':''" *ngFor="let c of categories">{{c.name}}</li>
+                    <li (click)="changeCategory(c.id)" [ngClass]="request.categoryId===c.id?'active':''" *ngFor="let c of categories |category:searchCategory">{{c.name}}</li>
                 </ul>
             </div>
         </div>
