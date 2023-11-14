@@ -8,44 +8,55 @@ import { RequestModel } from '../models/request.model';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  response:any;
-  categories:any=[];
-  pageNumbers:Number[]=[];
-  request:RequestModel=new RequestModel();
-  searchCategory:string="";
+  response: any;
+  categories: any = [];
+  pageNumbers: Number[] = [];
+  request: RequestModel = new RequestModel();
+  searchCategory: string = "";
+  newData: any[] = [];
 
-  
-  constructor(private http:HttpClient){
-    this.getAll();
-    this.getCategories();
+
+  constructor(private http: HttpClient) {
+    //this.getAll();
+    //this.getCategories();
+    this.request.pageSize=0;
+    this.feedData();
+
+
   }
-  changeCategory(categoryId:number |null= null){
-    this.request.categoryId=categoryId
-    this.getAll(1);
+
+  feedData() {
+    this.request.pageSize += 10;
+    this.newData = [];
+    for (let i = 0; i < this.request.pageSize; i++) {
+      this.newData.push(i);
+    }
+  }
+  changeCategory(categoryId: number | null = null) {
+    this.request.categoryId = categoryId
+    //this.getAll();
 
   }
 
-  getAll(pageNumber:any|number=1){
-    this.request.pageNumber=pageNumber;
+  getAll() {
     this.http
-    .post(`https://localhost:7127/api/Books/GetAll/`,this.request)
-    .subscribe(res=>{
-      this.response=res;
-      this.setPageNumber();
-    })
+      .post(`https://localhost:7127/api/Books/GetAll/`, this.request)
+      .subscribe(res => {
+        this.response = res;
+        
+      })
   }
 
-  getCategories(){
+  getCategories() {
     this.http.get("https://localhost:7127/api/Categories/GetAll")
-    .subscribe(res=> this.categories=res);
+      .subscribe(res => this.categories = res);
 
   }
 
-  setPageNumber(){
-    this.pageNumbers=[];
-    for(let i =0;i<this.response.totalPageCount;i++)
-    {
-      this.pageNumbers.push(i+1)
+  setPageNumber() {
+    this.pageNumbers = [];
+    for (let i = 0; i < this.response.totalPageCount; i++) {
+      this.pageNumbers.push(i + 1)
     }
 
   }
