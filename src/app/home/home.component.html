@@ -22,8 +22,8 @@
                     <input [(ngModel)]="searchCategory" type="text" class="form-control" placeholder="{{'search'|translate}}">
                 </div>
                 <ul class="categories">
-                    <li (click)="changeCategory(null)" [ngClass]="request.categoryId===null?'active':''">{{'allCategories'|translate}}</li>
-                    <li (click)="changeCategory(c.id)" [ngClass]="request.categoryId===c.id?'active':''" *ngFor="let c of categories |category:searchCategory">{{c.name}}</li>
+                    <li class="category" (click)="changeCategory(null)" [ngClass]="request.categoryId===null?'active':''">{{'allCategories'|translate}}</li>
+                    <li class="category"  (click)="changeCategory(c.id)" [ngClass]="request.categoryId===c.id?'active':''" *ngFor="let c of categories |category:searchCategory">{{c.name}}</li>
                 </ul>
             </div>
         </div>

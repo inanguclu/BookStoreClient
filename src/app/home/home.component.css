@@ -4,17 +4,23 @@
     list-style: none;
     margin: 0;
     padding: 0;
+    
 }
 .categories li {
+    position: relative;
     padding: 15px;
     padding-left: 10px;
     border-bottom: 1px solid #ccc;
     cursor: pointer;
     border-radius: 10px;
+    transition: all .5s;
 }
 .categories li:hover {
-    background-color:blue;
+    background-color:#6c757d;
     color: white;
+    transform: translateX(10px);
+    
+
 }
 
 .card-img-top{
@@ -23,6 +29,7 @@
     object-fit: contain;
 }
 .active{
-    background-color: blue;
+    background-color: #6c6efd;
     color: white;
+    
 }
