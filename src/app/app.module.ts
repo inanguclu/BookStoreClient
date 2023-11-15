@@ -12,6 +12,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { FormsModule } from '@angular/forms';
 import { CategoryPipe } from './pipes/category.pipe';
 import { InfiniteScrollModule } from "ngx-infinite-scroll";
+import { IconControlDirective } from './directives/icon-control.directive';
 
 export function HttpLoaderFactory(http:HttpClient){
   return new TranslateHttpLoader(http);
@@ -24,6 +25,7 @@ export function HttpLoaderFactory(http:HttpClient){
     HomeComponent,
     NavbarComponent,
     CategoryPipe,
+    IconControlDirective,
     
   ],
   imports: [
