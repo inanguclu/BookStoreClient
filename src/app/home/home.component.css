@@ -33,3 +33,7 @@
     color: white;
     
 }
+.btn-outline-secondary:hover{
+    background-color: #198754 !important;
+    color: white !important;
+}
