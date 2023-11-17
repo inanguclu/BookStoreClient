@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,9 +9,11 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class NavbarComponent {
 
-  count:number=0;
 
-  constructor(private translate:TranslateService){
+  constructor(
+    private translate:TranslateService,
+    public shopping:ShoppingCartService
+    ){
     translate.setDefaultLang('en');
   }
 

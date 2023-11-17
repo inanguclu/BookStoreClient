@@ -11,10 +11,9 @@ export class IconControlDirective {
 
 
   @HostListener("mouseenter")mouseenter(){
-    console.log(this.el);
-    
+    this.el.nativeElement.children[1].classList.add("fa-bounce");
   }
   @HostListener("mouseleave")mouseleave(){
-    this.el.nativeElement.className="btn btn-outline-secondary d-flex justify-content-between w-100 align-items-center"
+    this.el.nativeElement.children[1].classList.remove("fa-bounce");
   }
 }
