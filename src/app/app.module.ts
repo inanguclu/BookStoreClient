@@ -13,6 +13,9 @@ import { FormsModule } from '@angular/forms';
 import { CategoryPipe } from './pipes/category.pipe';
 import { InfiniteScrollModule } from "ngx-infinite-scroll";
 import { IconControlDirective } from './directives/icon-control.directive';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+
+
 
 export function HttpLoaderFactory(http:HttpClient){
   return new TranslateHttpLoader(http);
@@ -31,6 +34,7 @@ export function HttpLoaderFactory(http:HttpClient){
   imports: [
     BrowserModule,
     AppRoutingModule,
+    SweetAlert2Module,
     InfiniteScrollModule,
     FormsModule,
     HttpClientModule,
