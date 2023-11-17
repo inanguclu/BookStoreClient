@@ -14,6 +14,7 @@ import { CategoryPipe } from './pipes/category.pipe';
 import { InfiniteScrollModule } from "ngx-infinite-scroll";
 import { IconControlDirective } from './directives/icon-control.directive';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 
 
 
@@ -29,6 +30,7 @@ export function HttpLoaderFactory(http:HttpClient){
     NavbarComponent,
     CategoryPipe,
     IconControlDirective,
+    ShoppingCartComponent,
     
   ],
   imports: [

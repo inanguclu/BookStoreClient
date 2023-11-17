@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { RequestModel } from '../models/request.model';
 import { BookModel } from '../models/book.model';
 import { ShoppingCartService } from '../services/shopping-cart.service';
-import Swal from 'sweetalert2';
+import { SwalService } from '../services/swal.service';
 
 @Component({
   selector: 'app-home',
@@ -22,30 +22,22 @@ export class HomeComponent {
 
   constructor(
     private http: HttpClient,
-    private shopping: ShoppingCartService
+    private shopping: ShoppingCartService,
+    private swal: SwalService
+
   ) {
     this.getCategories();
 
-    const Toast = Swal.mixin({
-      toast: true,
-      position: 'top-end',
-      timer: 3000,
-      timerProgressBar: true,
-      showConfirmButton:false
-    })
-    Toast.fire('Something interesting happened', '', 'success')
-
-
+    
   }
 
   addShoppingCart(book: BookModel) {
     this.shopping.shoppingCarts.push(book)
     localStorage.setItem("shoppingCarts", JSON.stringify(this.shopping.shoppingCarts))
     this.shopping.count++;
+    this.swal.callToast("Sepete ürün başarıyla eklendi");
 
-
-
-
+    
 
   }
 
