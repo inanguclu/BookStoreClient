@@ -3,13 +3,14 @@ import { Component } from '@angular/core';
 import { RequestModel } from '../models/request.model';
 import { BookModel } from '../models/book.model';
 import { ShoppingCartService } from '../services/shopping-cart.service';
-import swal from 'sweetalert2';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
+
 export class HomeComponent {
   books: BookModel[] = [];
   categories: any = [];
@@ -25,7 +26,16 @@ export class HomeComponent {
   ) {
     this.getCategories();
 
-    
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      timer: 3000,
+      timerProgressBar: true,
+      showConfirmButton:false
+    })
+    Toast.fire('Something interesting happened', '', 'success')
+
+
   }
 
   addShoppingCart(book: BookModel) {
@@ -35,7 +45,7 @@ export class HomeComponent {
 
 
 
-    
+
 
   }
 
