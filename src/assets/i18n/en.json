@@ -2,5 +2,8 @@
     "categories": "Categories",
     "search":"Enter value to search for...",
     "homePage":"Home Page",
-    "allCategories":"All Categories"
+    "allCategories":"All Categories",
+    "addBookInShoppingCartIsSuccessful":"Adding book to the shopping cart was successful"
 }
+
+

@@ -4,6 +4,7 @@ import { RequestModel } from '../models/request.model';
 import { BookModel } from '../models/book.model';
 import { ShoppingCartService } from '../services/shopping-cart.service';
 import { SwalService } from '../services/swal.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-home',
@@ -23,7 +24,8 @@ export class HomeComponent {
   constructor(
     private http: HttpClient,
     private shopping: ShoppingCartService,
-    private swal: SwalService
+    private swal: SwalService,
+    private translate:TranslateService
 
   ) {
     this.getCategories();
@@ -35,8 +37,9 @@ export class HomeComponent {
     this.shopping.shoppingCarts.push(book)
     localStorage.setItem("shoppingCarts", JSON.stringify(this.shopping.shoppingCarts))
     this.shopping.count++;
-    this.swal.callToast("Sepete ürün başarıyla eklendi");
-
+    this.translate.get("addBookInShoppingCartIsSuccessful").subscribe(res=>{
+      this.swal.callToast(res);
+    })
     
 
   }
