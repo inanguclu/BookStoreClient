@@ -3,5 +3,6 @@
     "search": "Aranacak değer giriniz...",
     "homePage": "Ana Sayfa",
     "allCategories": "Tüm Kategoriler",
-    "addBookInShoppingCartIsSuccessful": "Kitap başarıyla sepete eklendi"
+    "addBookInShoppingCartIsSuccessful": "Kitap başarıyla sepete eklendi",
+    "shoppingCartPage":"Sepetim"
 }
