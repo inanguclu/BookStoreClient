@@ -23,6 +23,15 @@ li:hover {
 
 }
 
+.trash{
+    position: absolute;
+    right: 20px;
+    cursor: pointer;
+}
+.trash:hover{
+    color: #dc3545;
+}
+
 
 @media screen and (max-width:1200px) {
 

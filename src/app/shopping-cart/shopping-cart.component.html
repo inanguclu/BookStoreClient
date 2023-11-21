@@ -11,10 +11,9 @@
 
 
 <div class="row mt-4">
-
     <div class="col-lg-9 col-12">
         <div class="card">
-            <div class="card" *ngFor="let s of shopping.shoppingCarts">
+            <div class="card position-relative" *ngFor="let s of shopping.shoppingCarts">
                 <div class="row">
                     <div class="col-2 text-center card-image-div">
                         <img class="card-image" [src]="s.coverImageUrl" >
@@ -31,10 +30,11 @@
                         </div>
                     </div>
                     <div class="col-3 text-center d-flex justify-content-center" style="flex-direction: column;">
-                        <h5>{{s.price.value| currency:'':'':'1.2-2'}}{{s.price.currency}}</h5>
-                        <i class="fa fa-trash"></i>
+                        <h5 *ngIf="language=='tr'">{{s.price.value| trCurrency}} {{s.price.currency}}</h5>
+                        <h5 *ngIf="language!='tr'">{{s.price.value| currency:'':'':'1.2-2' }} {{s.price.currency}}</h5>
                     </div>
                 </div>
+                <i class="fa fa-trash trash" ></i>
             </div>
         </div>
 
