@@ -6,9 +6,9 @@ import { Injectable } from '@angular/core';
 export class ShoppingCartService {
 
   shoppingCarts: any[] = [];
-  prices:{value:number,currency:string}[]=[];
+  prices: { value: number, currency: string }[] = [];
   count: number = 0;
-  total:number=0;
+  total: number = 0;
 
   constructor() {
     if (localStorage.getItem("shoppingCarts")) {
@@ -21,13 +21,32 @@ export class ShoppingCartService {
     }
 
 
-    
+
   }
-  calcTotal(){
-    this.total=0;
-    for(let s of this.shoppingCarts){
-      this.prices.push({...s.price});
-      this.total+=s.price.value;
+  calcTotal() {
+
+    this.total = 0;
+
+    const sumMap = new Map<string, number>();
+
+    this.prices = [];
+    for (let s of this.shoppingCarts) {
+      this.prices.push({ ...s.price });
     }
+
+
+    for (const item of this.prices) {
+      const currentSum = sumMap.get(item.currency) || 0;
+      sumMap.set(item.currency, currentSum + item.value);
+    }
+
+    this.prices = [];
+    for (const [currency, sum] of sumMap) {
+      this.prices.push({ value: sum, currency: currency })
+      console.log(this.prices);
+      
+
+    }
+
   }
 }
