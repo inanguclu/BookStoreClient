@@ -43,7 +43,8 @@
         <div class="card">
             <div class="form-group">
                 <h1 class="alert alert-danger text-center">
-                    25.000,00 ₺
+                    <span *ngIf="language=='tr'">{{shopping.total|trCurrency}}</span>
+                    <span *ngIf="language!='tr'">{{shopping.total|currency:'':'':'1.2-2'}}</span>
                 </h1>
             </div>
 

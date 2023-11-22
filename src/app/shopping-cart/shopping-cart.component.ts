@@ -11,6 +11,7 @@ export class ShoppingCartComponent {
 
 
   language: string = "en";
+  total:number=0;
 
 
   constructor(
@@ -22,6 +23,7 @@ export class ShoppingCartComponent {
     }
 
     translate.setDefaultLang(this.language);
+    this.shopping.calcTotal();
 
   }
 }

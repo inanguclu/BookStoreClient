@@ -6,7 +6,9 @@ import { Injectable } from '@angular/core';
 export class ShoppingCartService {
 
   shoppingCarts: any[] = [];
+  prices:{value:number,currency:string}[]=[];
   count: number = 0;
+  total:number=0;
 
   constructor() {
     if (localStorage.getItem("shoppingCarts")) {
@@ -19,5 +21,13 @@ export class ShoppingCartService {
     }
 
 
+    
+  }
+  calcTotal(){
+    this.total=0;
+    for(let s of this.shoppingCarts){
+      this.prices.push({...s.price});
+      this.total+=s.price.value;
+    }
   }
 }
