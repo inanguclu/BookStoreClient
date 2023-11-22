@@ -40,11 +40,11 @@
 
 
     <div class="col-lg-3 col-12">
-        <div class="card">
+        <div class="card" *ngFor="let p of shopping.prices">
             <div class="form-group">
                 <h1 class="alert alert-danger text-center">
-                    <span *ngIf="language=='tr'">{{shopping.total|trCurrency}}</span>
-                    <span *ngIf="language!='tr'">{{shopping.total|currency:'':'':'1.2-2'}}</span>
+                    <span *ngIf="language=='tr'">{{p.value|trCurrency}} {{p.currency}}</span>
+                    <span *ngIf="language!='tr'">{{p.value|currency:'':'':'1.2-2'}} {{p.currency}}</span>
                 </h1>
             </div>
 
