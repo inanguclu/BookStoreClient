@@ -4,5 +4,6 @@
     "homePage": "Ana Sayfa",
     "allCategories": "Tüm Kategoriler",
     "addBookInShoppingCartIsSuccessful": "Kitap başarıyla sepete eklendi",
-    "shoppingCartPage":"Sepetim"
+    "shoppingCartPage":"Sepetim",
+    "noBooksInShoppingCart":"Sepette Ürün Bulunmuyor !"
 }

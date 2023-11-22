@@ -49,4 +49,13 @@ export class ShoppingCartService {
     }
 
   }
+
+  removeByIndex(index:number){
+    this.shoppingCarts.splice(index,1);
+    localStorage.setItem("shoppingCarts",JSON.stringify(this.shoppingCarts));
+    this.count = this.shoppingCarts.length;
+    this.calcTotal();
+    
+    //buraya devam edecegiz
+  }
 }

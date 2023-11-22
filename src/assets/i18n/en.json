@@ -4,7 +4,8 @@
     "homePage":"Home Page",
     "allCategories":"All Categories",
     "addBookInShoppingCartIsSuccessful":"Adding book to the shopping cart was successful",
-    "shoppingCartPage":"My Shopping Cart"
+    "shoppingCartPage":"My Shopping Cart",
+    "noBooksInShoppingCart":"No book in shopping cart !"
 }
 
 

@@ -9,10 +9,11 @@
     </div>
 </div>
 
+<h1 *ngIf="shopping.count===0" class="alert alert-danger text-center ">{{'noBooksInShoppingCart'|translate}}</h1>
 
-<div class="row mt-4">
+<div class="row mt-4" *ngIf="shopping.count > 0">
     <div class="col-lg-9 col-12">
-        <div class="card mt-1 position-relative" *ngFor="let s of shopping.shoppingCarts">
+        <div class="card mt-1 position-relative" *ngFor="let s of shopping.shoppingCarts let i = index">
             <div class="row ">
                 <div class="col-2 text-center card-image-div">
                     <img class="card-image" [src]="s.coverImageUrl" >
@@ -33,7 +34,7 @@
                     <h5 *ngIf="language!='tr'">{{s.price.value| currency:'':'':'1.2-2' }} {{s.price.currency}}</h5>
                 </div>
             </div>
-            <i class="fa fa-trash trash" ></i>
+            <i (click)="shopping.removeByIndex(i)" class="fa fa-trash trash" ></i>
         </div>
 
     </div>
