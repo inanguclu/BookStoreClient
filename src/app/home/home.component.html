@@ -27,7 +27,7 @@
                         [ngClass]="request.categoryId===null?'active':''">{{'allCategories'|translate}}</li>
                     <li class="category" (click)="changeCategory(c.id)"
                         [ngClass]="request.categoryId===c.id?'active':''"
-                        *ngFor="let c of categories |category:searchCategory">{{c.name}}</li>
+                        *ngFor="let c of categories |category:searchCategory">{{c.name| translate}}</li>
                 </ul>
             </div>
         </div>
