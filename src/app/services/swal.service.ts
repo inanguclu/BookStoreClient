@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import Swal from 'sweetalert2';
 
 @Injectable({
@@ -19,6 +20,21 @@ export class SwalService {
       showConfirmButton: false
     });
     Toast.fire(title, '', icon);
+  }
+
+  callSwall(callBack:()=>void){
+    Swal.fire({
+      title: "silmek istiyor musunuz?",
+      icon:"question",
+      showCancelButton:true,
+      cancelButtonText:"vazgeç",
+      showConfirmButton:true,
+      confirmButtonText:'sil'
+    }).then(res=> {
+      if(res.isConfirmed){
+        callBack();
+      }
+    })
   }
 }
 

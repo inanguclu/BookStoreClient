@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { SwalService } from './swal.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,9 @@ export class ShoppingCartService {
   count: number = 0;
   total: number = 0;
 
-  constructor() {
+  constructor(
+    private swal:SwalService
+  ) {
     if (localStorage.getItem("shoppingCarts")) {
       const carts: string | null = (localStorage.getItem("shoppingCarts"));
       if (carts !== null) {
@@ -51,10 +54,13 @@ export class ShoppingCartService {
   }
 
   removeByIndex(index:number){
-    this.shoppingCarts.splice(index,1);
+    this.swal.callSwall(()=>{
+      this.shoppingCarts.splice(index,1);
     localStorage.setItem("shoppingCarts",JSON.stringify(this.shoppingCarts));
     this.count = this.shoppingCarts.length;
     this.calcTotal();
+    });
+
     
     //buraya devam edecegiz
   }
