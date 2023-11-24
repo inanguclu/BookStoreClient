@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { SwalService } from './swal.service';
 import { TranslateService } from '@ngx-translate/core';
 import { forkJoin } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,8 @@ export class ShoppingCartService {
 
   constructor(
     private swal: SwalService,
-    private translate: TranslateService
+    private translate: TranslateService,
+    private http:HttpClient
   ) {
     if (localStorage.getItem("shoppingCarts")) {
       const carts: string | null = (localStorage.getItem("shoppingCarts"));
@@ -79,5 +81,14 @@ export class ShoppingCartService {
 
 
     //buraya devam edecegiz
+  }
+
+  payment(currency:string){
+    const newList=this.shoppingCarts.filter(p=>p.price.currency===currency);
+    this.http.post("https://localhost:7127/api/ShoppingCarts/Payment",{books:newList})
+    .subscribe(res=>{
+      //burası sonra doldurulacak
+    })
+
   }
 }
