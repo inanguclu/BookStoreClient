@@ -6,7 +6,14 @@
     "addBookInShoppingCartIsSuccessful":"Adding book to the shopping cart was successful",
     "shoppingCartPage":"My Shopping Cart",
     "noBooksInShoppingCart":"No book in shopping cart !",
-    "Bilim":"Science"
+    "Bilim":"Science",
+    "remove":{
+         "doYouWantToDeleted":"Do You Want To Deleted ?",
+         "cancelBtn":"Cancel",
+         "confirmBtn":"Remove"
+
+    }
+   
 }
 
 

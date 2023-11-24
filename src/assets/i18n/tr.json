@@ -6,5 +6,10 @@
     "addBookInShoppingCartIsSuccessful": "Kitap başarıyla sepete eklendi",
     "shoppingCartPage":"Sepetim",
     "noBooksInShoppingCart":"Sepette Ürün Bulunmuyor !",
-    "Bilim":"Bilim"
+    "Bilim":"Bilim",
+    "remove":{
+        "doYouWantToDeleted":"Silmek İstiyormusunuz ?",
+        "cancelBtn":"Vazgeç",
+        "confirmBtn":"Sil"
+   }
 }

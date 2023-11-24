@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { SwalService } from './swal.service';
+import { TranslateService } from '@ngx-translate/core';
+import { forkJoin } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +14,8 @@ export class ShoppingCartService {
   total: number = 0;
 
   constructor(
-    private swal:SwalService
+    private swal: SwalService,
+    private translate: TranslateService
   ) {
     if (localStorage.getItem("shoppingCarts")) {
       const carts: string | null = (localStorage.getItem("shoppingCarts"));
@@ -47,21 +50,34 @@ export class ShoppingCartService {
     for (const [currency, sum] of sumMap) {
       this.prices.push({ value: sum, currency: currency })
       console.log(this.prices);
-      
+
 
     }
 
   }
 
-  removeByIndex(index:number){
-    this.swal.callSwall(()=>{
-      this.shoppingCarts.splice(index,1);
-    localStorage.setItem("shoppingCarts",JSON.stringify(this.shoppingCarts));
-    this.count = this.shoppingCarts.length;
-    this.calcTotal();
+
+
+
+  removeByIndex(index: number) {
+
+    forkJoin({
+      doYouWantToDeleted:this.translate.get("remove.doYouWantToDeleted"),
+      cancelBtn:this.translate.get("remove.cancelBtn"),
+      confirmBtn:this.translate.get("remove.confirmBtn")
+    }).subscribe(res=>{
+      this.swal.callSwall(res.doYouWantToDeleted,res.cancelBtn,res.confirmBtn, () => {
+
+      this.shoppingCarts.splice(index, 1);
+      localStorage.setItem("shoppingCarts", JSON.stringify(this.shoppingCarts));
+      this.count = this.shoppingCarts.length;
+      this.calcTotal();
     });
+    })
 
     
+
+
     //buraya devam edecegiz
   }
 }

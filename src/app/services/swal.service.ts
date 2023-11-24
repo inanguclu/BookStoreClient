@@ -22,16 +22,16 @@ export class SwalService {
     Toast.fire(title, '', icon);
   }
 
-  callSwall(callBack:()=>void){
+  callSwall(title: string, cancelBtnName: string, confirmBtnName: string, callBack: () => void) {
     Swal.fire({
-      title: "silmek istiyor musunuz?",
-      icon:"question",
-      showCancelButton:true,
-      cancelButtonText:"vazgeç",
-      showConfirmButton:true,
-      confirmButtonText:'sil'
-    }).then(res=> {
-      if(res.isConfirmed){
+      title:title,
+      icon: "question",
+      showCancelButton: true,
+      cancelButtonText: cancelBtnName,
+      showConfirmButton: true,
+      confirmButtonText: confirmBtnName
+    }).then(res => {
+      if (res.isConfirmed) {
         callBack();
       }
     })
