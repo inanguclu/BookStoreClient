@@ -11,5 +11,8 @@
         "doYouWantToDeleted":"Silmek İstiyormusunuz ?",
         "cancelBtn":"Vazgeç",
         "confirmBtn":"Sil"
+   },
+   "payment":{
+    "title":"Ödeme Sayfası"
    }
 }
