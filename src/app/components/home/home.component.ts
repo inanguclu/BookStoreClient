@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { RequestModel } from '../models/request.model';
-import { BookModel } from '../models/book.model';
-import { ShoppingCartService } from '../services/shopping-cart.service';
-import { SwalService } from '../services/swal.service';
+import { RequestModel } from '../../models/request.model';
+import { BookModel } from '../../models/book.model';
+import { ShoppingCartService } from '../../services/shopping-cart.service';
+import { SwalService } from '../../services/swal.service';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
