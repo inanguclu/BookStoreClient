@@ -72,17 +72,17 @@
                 <ul class="nav nav-tabs">
                     <li class="nav-item">
                         <a class="nav-link" (click)="changeTab(1)" [ngClass]=" selectedTab === 1 ?'active':''">
-                            {{'payment.buyer'|translate}}
+                            {{'payment.buyer.title'|translate}}
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" (click)="changeTab(2)" [ngClass]=" selectedTab === 2 ?'active':''">
-                            {{'payment.address'|translate}}
+                            {{'payment.address.title'|translate}}
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" (click)="changeTab(3)" [ngClass]=" selectedTab === 3 ?'active':''">
-                            {{'payment.creditCart'|translate}}
+                            {{'payment.creditCart.title'|translate}}
                         </a>
                     </li>
                 </ul>
@@ -91,30 +91,55 @@
                 <div *ngIf="selectedTab===1" class="mt-1">
                     <form #buyerForm="ngForm" autocomplete="off">
                         <h4 class="text-center">{{'payment.buyer.title'|translate}}</h4>
-                        <div class="form-group mt-1">
-                            <label for="name">{{'payment.buyer.name'|translate}}</label>
-                            <input type="text" [(ngModel)]="request.buyer.name" name="buyerName" class="form-control">
+                        <div class="row">
+                            <!--Name-->
+                            <div class="col-6">
+                                <div class="form-group mt-1">
+                                    <label for="name">{{'payment.buyer.name'|translate}}</label>
+                                    <input type="text" [(ngModel)]="request.buyer.name" name="buyerName"
+                                        class="form-control">
+                                </div>
+                            </div>
+                            <!--Surname-->
+                            <div class="col-6">
+                                <div class="form-group mt-1">
+                                    <label for="surname">{{'payment.buyer.surname'|translate}}</label>
+                                    <input type="text" [(ngModel)]="request.buyer.surname" name="buyerSurname"
+                                        class="form-control">
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group mt-1">
-                            <label for="surname">{{'payment.buyer.surname'|translate}}</label>
-                            <input type="text" [(ngModel)]="request.buyer.surname" name="buyerSurname"
-                                class="form-control">
+                        <div class="row">
+                            <!--IdentityNumber-->
+                            <div class="col-4">
+                                <div class="form-group mt-1">
+                                    <label for="identityNumber">{{'payment.buyer.identityNumber'|translate}}</label>
+                                    <input type="text" [(ngModel)]="request.buyer.identityNumber"
+                                        name="buyerIdentityNumber" class="form-control" maxlength="11">
+                                </div>
+                            </div>
+                            <!--Email-->
+                            <div class="col-4">
+                                <div class="form-group mt-1">
+                                    <label for="email">{{'payment.buyer.email'|translate}}</label>
+                                    <input type="email" [(ngModel)]="request.buyer.email" name="buyerEmail"
+                                        class="form-control">
+                                </div>
+                            </div>
+                            <!--GsmNumber-->
+                            <div class="col-4">
+                                <div class="form-group mt-1">
+                                    <label for="name">{{'payment.buyer.gsmNumber'|translate}}</label>
+                                    <input type="number" [(ngModel)]="request.buyer.gsmNumber" name="buyergsmNumber"
+                                        class="form-control">
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group mt-1">
-                            <label for="identityNumber">{{'payment.buyer.identityNumber'|translate}}</label>
-                            <input type="text" [(ngModel)]="request.buyer.identityNumber" name="buyerIdentityNumber"
-                                class="form-control" maxlength="11">
-                        </div>
-                        <div class="form-group mt-1">
-                            <label for="email">{{'payment.buyer.email'|translate}}</label>
-                            <input type="email" [(ngModel)]="request.buyer.email" name="buyerEmail"
-                                class="form-control">
-                        </div>
-                        <div class="form-group mt-1">
-                            <label for="name">{{'payment.buyer.gsmNumber'|translate}}</label>
-                            <input type="number" [(ngModel)]="request.buyer.gsmNumber" name="buyergsmNumber"
-                                class="form-control">
-                        </div>
+
+
+
+
+
                     </form>
                 </div>
                 <!--address-->

@@ -4,15 +4,29 @@
     "homePage": "Ana Sayfa",
     "allCategories": "Tüm Kategoriler",
     "addBookInShoppingCartIsSuccessful": "Kitap başarıyla sepete eklendi",
-    "shoppingCartPage":"Sepetim",
-    "noBooksInShoppingCart":"Sepette Ürün Bulunmuyor !",
-    "Bilim":"Bilim",
-    "remove":{
-        "doYouWantToDeleted":"Silmek İstiyormusunuz ?",
-        "cancelBtn":"Vazgeç",
-        "confirmBtn":"Sil"
-   },
-   "payment":{
-    "title":"Ödeme Sayfası"
-   }
+    "shoppingCartPage": "Sepetim",
+    "noBooksInShoppingCart": "Sepette Ürün Bulunmuyor !",
+    "Bilim": "Bilim",
+    "remove": {
+        "doYouWantToDeleted": "Silmek İstiyormusunuz ?",
+        "cancelBtn": "Vazgeç",
+        "confirmBtn": "Sil"
+    },
+    "payment": {
+        "title": "Ödeme Sayfası",
+        "buyer": {
+            "title": "Alıcı Bilgileri",
+            "name": "Alıcı Adı",
+            "surname": "Alıcı Soyadı",
+            "identityNumber": "T.C. Numarası",
+            "email": "Mail Adresi",
+            "gsmNumber": "Telefon Numarası"
+        },
+        "address":{
+            "title":"Adres Bilgileri"
+        },
+        "creditCart":{
+            "title":"Kredi Kartı Bilgileri"
+        }
+    }
 }
