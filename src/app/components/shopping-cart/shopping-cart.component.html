@@ -140,6 +140,14 @@
                 </div>
                 <!--address-->
                 <div *ngIf="selectedTab===2">
+                    <form shippingAddressForm="ngForm" autocomplete="off">
+                        <div class="form-group">
+                            <label for="country">{{'payment.shippingAddress.country'|translate}}</label>
+                            <select name="shippingCountry" class="form-control" [(ngModel)]="request.shippingAddress.country">
+                                <option *ngFor="let c of countries">{{c}}</option>
+                            </select>
+                        </div>
+                    </form>
 
                 </div>
                 <!--creditCart-->
@@ -151,14 +159,15 @@
 
             </div>
             <div class="modal-footer position-relative">
-                <button type="button" style="position: absolute; left:10px" *ngIf="selectedTab>1" class="btn btn-danger" (click)="changeTab(selectedTab-1)">
+                <button type="button" style="position: absolute; left:10px" *ngIf="selectedTab>1" class="btn btn-danger"
+                    (click)="changeTab(selectedTab-1)">
                     <i class="fa-solid fa-circle-left"></i>
                 </button>
                 <button type="button" *ngIf="selectedTab<3" class="btn btn-dark" (click)="changeTab(selectedTab+1)">
                     <i class="fa-solid fa-circle-right"></i>
                 </button>
                 <button type="button" *ngIf="selectedTab===3" class="btn btn-success" (click)="payment()">
-                    <i class="fa-solid fa-credit-card fa-fade text-light me-2" ></i>
+                    <i class="fa-solid fa-credit-card fa-fade text-light me-2"></i>
                     <span>{{'payment.completePaymentBtn'|translate}}</span>
                 </button>
             </div>

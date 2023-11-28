@@ -29,7 +29,7 @@ export class AddressModel {
     zipCode: string = "";
     contactName: string = "";
     city: string = "";
-    country: string = "";
+    country: string = "Türkiye";
 }
 export class PaymentCardModel {
 
