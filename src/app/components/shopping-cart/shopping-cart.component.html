@@ -71,25 +71,32 @@
             <div class="modal-body">
                 <ul class="nav nav-tabs">
                     <li class="nav-item">
-                        <a class="nav-link" [ngClass]=" selectedTab === 1 ?'active':''">
+                        <a class="nav-link" (click)="changeTab(1)" [ngClass]=" selectedTab === 1 ?'active':''">
                             {{'payment.buyer'|translate}}
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" [ngClass]=" selectedTab === 2 ?'active':''">
+                        <a class="nav-link" (click)="changeTab(2)" [ngClass]=" selectedTab === 2 ?'active':''">
                             {{'payment.address'|translate}}
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" [ngClass]=" selectedTab === 3 ?'active':''">
+                        <a class="nav-link" (click)="changeTab(3)" [ngClass]=" selectedTab === 3 ?'active':''">
                             {{'payment.creditCart'|translate}}
                         </a>
                     </li>
                 </ul>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Understood</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                    {{'payment.closeBtn'|translate}}
+                </button>
+                <button type="button" *ngIf="selectedTab<3" class="btn btn-primary" (click)="changeTab(selectedTab+1)">
+                    {{'payment.nextBtn'|translate}}
+                </button>
+                <button type="button" *ngIf="selectedTab===3" class="btn btn-primary" (click)="payment()" >
+                    {{'payment.complatedBtn'|translate}}
+                </button>
             </div>
         </div>
     </div>

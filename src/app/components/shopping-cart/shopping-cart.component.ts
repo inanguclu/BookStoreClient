@@ -27,4 +27,12 @@ export class ShoppingCartComponent {
     this.shopping.calcTotal();
 
   }
+
+  changeTab(tabNumber:number){
+    this.selectedTab=tabNumber;
+
+  }
+  payment(){
+    
+  }
 }
