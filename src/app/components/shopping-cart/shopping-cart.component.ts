@@ -11,6 +11,7 @@ export class ShoppingCartComponent {
 
 
   language: string = "en";
+  selectedTab: number = 1;
 
 
 

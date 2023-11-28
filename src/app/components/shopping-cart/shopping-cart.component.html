@@ -16,7 +16,7 @@
         <div class="card mt-1 position-relative" *ngFor="let s of shopping.shoppingCarts let i = index">
             <div class="row ">
                 <div class="col-2 text-center card-image-div">
-                    <img class="card-image" [src]="s.coverImageUrl" >
+                    <img class="card-image" [src]="s.coverImageUrl">
                 </div>
                 <div class="col-7">
                     <div class="form-group">
@@ -34,7 +34,7 @@
                     <h5 *ngIf="language!='tr'">{{s.price.value| currency:'':'':'1.2-2' }} {{s.price.currency}}</h5>
                 </div>
             </div>
-            <i (click)="shopping.removeByIndex(i)" class="fa fa-trash trash" ></i>
+            <i (click)="shopping.removeByIndex(i)" class="fa fa-trash trash"></i>
         </div>
 
     </div>
@@ -50,29 +50,47 @@
             </div>
 
             <div class="form-group">
-                <button data-bs-toggle="modal" data-bs-target="#paymentModal"  class="btn btn-danger w-100">Ödeme Yap</button>
+                <button data-bs-toggle="modal" data-bs-target="#paymentModal" class="btn btn-danger w-100">Ödeme
+                    Yap</button>
             </div>
         </div>
     </div>
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="paymentModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true">
+<div class="modal fade" id="paymentModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="paymentModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="paymentModalLabel">
-            {{'payment.title'|translate}}
-        </h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="paymentModalLabel">
+                    {{'payment.title'|translate}}
+                </h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link" [ngClass]=" selectedTab === 1 ?'active':''">
+                            {{'payment.buyer'|translate}}
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [ngClass]=" selectedTab === 2 ?'active':''">
+                            {{'payment.address'|translate}}
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [ngClass]=" selectedTab === 3 ?'active':''">
+                            {{'payment.creditCart'|translate}}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Understood</button>
+            </div>
         </div>
-        <div class="modal-body">
-            
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Understood</button>
-        </div>
-      </div>
     </div>
-  </div>
+</div>
