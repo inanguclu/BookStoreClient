@@ -14,9 +14,7 @@
     },
     "payment": {
         "title": "Ödeme Sayfası",
-        "nextBtn":"Sonraki",
-        "prevBtn":"Önceki",
-        "completedBtn":"Ödeme Yap",
+        "completePaymentBtn":"Ödemeyi Tamamla",
         "buyer": {
             "title": "Alıcı Bilgileri",
             "name": "Alıcı Adı",
