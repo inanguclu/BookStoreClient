@@ -88,13 +88,13 @@
                 </ul>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                    {{'payment.closeBtn'|translate}}
+                <button type="button" *ngIf="selectedTab>1" class="btn btn-danger"  (click)="changeTab(selectedTab-1)" >
+                    {{'payment.prevBtn'|translate}}
                 </button>
                 <button type="button" *ngIf="selectedTab<3" class="btn btn-primary" (click)="changeTab(selectedTab+1)">
                     {{'payment.nextBtn'|translate}}
                 </button>
-                <button type="button" *ngIf="selectedTab===3" class="btn btn-primary" (click)="payment()" >
+                <button type="button" *ngIf="selectedTab===3" class="btn btn-success" (click)="payment()" >
                     {{'payment.complatedBtn'|translate}}
                 </button>
             </div>
