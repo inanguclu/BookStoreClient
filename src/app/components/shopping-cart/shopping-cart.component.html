@@ -88,13 +88,39 @@
                 </ul>
 
                 <!--buyer-->
-                <div *ngIf="selectedTab===1">
-                   
-                </div >
-                ,<!--address-->
+                <div *ngIf="selectedTab===1" class="mt-1">
+                    <form #buyerForm="ngForm" autocomplete="off">
+                        <h4 class="text-center">{{'payment.buyer.title'|translate}}</h4>
+                        <div class="form-group mt-1">
+                            <label for="name">{{'payment.buyer.name'|translate}}</label>
+                            <input type="text" [(ngModel)]="request.buyer.name" name="buyerName" class="form-control">
+                        </div>
+                        <div class="form-group mt-1">
+                            <label for="surname">{{'payment.buyer.surname'|translate}}</label>
+                            <input type="text" [(ngModel)]="request.buyer.surname" name="buyerSurname"
+                                class="form-control">
+                        </div>
+                        <div class="form-group mt-1">
+                            <label for="identityNumber">{{'payment.buyer.identityNumber'|translate}}</label>
+                            <input type="text" [(ngModel)]="request.buyer.identityNumber" name="buyerIdentityNumber"
+                                class="form-control" maxlength="11">
+                        </div>
+                        <div class="form-group mt-1">
+                            <label for="email">{{'payment.buyer.email'|translate}}</label>
+                            <input type="email" [(ngModel)]="request.buyer.email" name="buyerEmail"
+                                class="form-control">
+                        </div>
+                        <div class="form-group mt-1">
+                            <label for="name">{{'payment.buyer.gsmNumber'|translate}}</label>
+                            <input type="number" [(ngModel)]="request.buyer.gsmNumber" name="buyergsmNumber"
+                                class="form-control">
+                        </div>
+                    </form>
+                </div>
+                <!--address-->
                 <div *ngIf="selectedTab===2">
 
-                </div >
+                </div>
                 <!--creditCart-->
                 <div *ngIf="selectedTab===3">
 
@@ -104,13 +130,13 @@
 
             </div>
             <div class="modal-footer">
-                <button type="button" *ngIf="selectedTab>1" class="btn btn-danger"  (click)="changeTab(selectedTab-1)" >
+                <button type="button" *ngIf="selectedTab>1" class="btn btn-danger" (click)="changeTab(selectedTab-1)">
                     {{'payment.prevBtn'|translate}}
                 </button>
                 <button type="button" *ngIf="selectedTab<3" class="btn btn-primary" (click)="changeTab(selectedTab+1)">
                     {{'payment.nextBtn'|translate}}
                 </button>
-                <button type="button" *ngIf="selectedTab===3" class="btn btn-success" (click)="payment()" >
+                <button type="button" *ngIf="selectedTab===3" class="btn btn-success" (click)="payment()">
                     {{'payment.complatedBtn'|translate}}
                 </button>
             </div>
