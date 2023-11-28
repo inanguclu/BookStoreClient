@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ShoppingCartService } from '../../services/shopping-cart.service';
 import { TranslateService } from '@ngx-translate/core';
+import { PaymentModel } from 'src/app/models/payment.model';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -12,6 +13,7 @@ export class ShoppingCartComponent {
 
   language: string = "en";
   selectedTab: number = 1;
+  request:PaymentModel=new PaymentModel();
 
 
 
@@ -25,6 +27,7 @@ export class ShoppingCartComponent {
 
 
     this.shopping.calcTotal();
+    this.request.books=this.shopping.shoppingCarts;
 
   }
 
