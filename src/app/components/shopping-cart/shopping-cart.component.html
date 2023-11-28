@@ -86,6 +86,22 @@
                         </a>
                     </li>
                 </ul>
+
+                <!--buyer-->
+                <div *ngIf="selectedTab===1">
+                   
+                </div >
+                ,<!--address-->
+                <div *ngIf="selectedTab===2">
+
+                </div >
+                <!--creditCart-->
+                <div *ngIf="selectedTab===3">
+
+                </div>
+
+
+
             </div>
             <div class="modal-footer">
                 <button type="button" *ngIf="selectedTab>1" class="btn btn-danger"  (click)="changeTab(selectedTab-1)" >
