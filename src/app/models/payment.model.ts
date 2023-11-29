@@ -28,7 +28,7 @@ export class AddressModel {
     description: string = "";
     zipCode: string = "";
     contactName: string = "";
-    city: string = "";
+    city: string = "Kayseri";
     country: string = "Türkiye";
 }
 export class PaymentCardModel {
