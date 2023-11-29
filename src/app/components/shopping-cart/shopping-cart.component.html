@@ -141,7 +141,7 @@
                 <!--address-->
                 <div *ngIf="selectedTab===2">
                     <form shippingAddressForm="ngForm" autocomplete="off">
-                        <div class="row">
+                        <div class="row mt-3">
 
                             <!--Country-->
                             <div class="col-4">
@@ -160,19 +160,31 @@
                                     <label for="city">{{'payment.shippingAddress.city'|translate}}</label>
                                     <select name="shippingCity" class="form-control"
                                         [(ngModel)]="request.shippingAddress.city">
-                                        <option *ngFor="let c of countries">{{c}}</option>
+                                        <option *ngFor="let c of cities">{{c}}</option>
                                     </select>
                                 </div>
                             </div>
 
                             <!--ZipCode-->
-                            <div class="col-4"></div>
+                            <div class="col-4">
+                                <div class="col-4">
+                                    <div class="form-group">
+                                        <label for="zipCode">{{'payment.shippingAddress.zipCode'|translate}}</label>
+                                        <input type="text" [(ngModel)]="request.shippingAddress.zipCode" name="shippingZipCode" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
 
-                        <div class="row">
+                        <div class="row mt-3">
                             <!--Contact Name-->
-                            <div class="col-6"></div>
+                            <div class="col-6">
+                                div class="form-group">
+                                        <label for="contactName">{{'payment.shippingAddress.contactName'|translate}}</label>
+                                        <input type="text" [(ngModel)]="request.shippingAddress.contactName" name="shippingContactName" class="form-control">
+                                    </div>
+                            </div>
                             <!--Description-->
                             <div class="col-6"></div>
                         </div>
