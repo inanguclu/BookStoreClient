@@ -25,7 +25,15 @@
         },
         "address":"Adres Bilgileri",
         "shippingAddress":{
-            "title":"Adres Bilgileri",
+            "title":"Teslim Adresi",
+            "country":"Ülke",
+            "city":"Şehir",
+            "zipCode":"Posta Kodu",
+            "contactName":"Teslim Alacak Kişi",
+            "description":"Açık Adresi"
+        },
+        "billingAddress":{
+            "title":"Fatura Adresi",
             "country":"Ülke",
             "city":"Şehir",
             "zipCode":"Posta Kodu",
