@@ -216,7 +216,7 @@
                                 <div class="form-group">
                                     <label for="billingCountry">{{'payment.billingAddress.country'|translate}}</label>
                                     <select name="billingCountry" class="form-control"
-                                        [(ngModel)]="request.shippingAddress.country">
+                                        [(ngModel)]="request.billingAddress.country">
                                         <option *ngFor="let c of countries">{{c}}</option>
                                     </select>
                                 </div>
@@ -250,17 +250,17 @@
                             <!--Contact Name-->
                             <div class="col-6">
                                 <div class="form-group">
-                                    <label for="contactName">{{'payment.shippingAddress.contactName'|translate}}</label>
-                                    <input type="text" [(ngModel)]="request.shippingAddress.contactName"
-                                        name="shippingContactName" class="form-control">
+                                    <label for="contactName">{{'payment.billingAddress.contactName'|translate}}</label>
+                                    <input type="text" [(ngModel)]="request.billingAddress.contactName"
+                                        name="billingContactName" class="form-control">
                                 </div>
                             </div>
                             <!--Description-->
                             <div class="col-6">
                                 <div class="form-group">
-                                    <label for="description">{{'payment.shippingAddress.description'|translate}}</label>
-                                    <input type="text" [(ngModel)]="request.shippingAddress.description"
-                                        name="shippingDescription" class="form-control">
+                                    <label for="description">{{'payment.billingAddress.description'|translate}}</label>
+                                    <input type="text" [(ngModel)]="request.billingAddress.description"
+                                        name="billingDescription" class="form-control">
                                 </div>
                             </div>
                         </div>
