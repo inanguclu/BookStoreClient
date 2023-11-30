@@ -17,6 +17,7 @@ export class ShoppingCartComponent {
   request:PaymentModel=new PaymentModel();
   countries=Countries;
   cities=Cities;
+  isSameAddress:boolean=false;
 
 
 
@@ -38,7 +39,11 @@ export class ShoppingCartComponent {
     this.selectedTab=tabNumber;
 
   }
-  payment(){
-    
+  payment(){}
+
+  changeIsSameAddress(){
+    if(this.isSameAddress){
+      this.request.billingAddress={...this.request.shippingAddress}
+    }
   }
 }
