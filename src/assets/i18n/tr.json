@@ -23,8 +23,14 @@
             "email": "Mail Adresi",
             "gsmNumber": "Telefon Numarası"
         },
-        "address":{
-            "title":"Adres Bilgileri"
+        "address":"Adres Bilgileri",
+        "shippingAddress":{
+            "title":"Adres Bilgileri",
+            "country":"Ülke",
+            "city":"Şehir",
+            "zipCode":"Posta Kodu",
+            "contactName":"Teslim Alacak Kişi",
+            "description":"Açık Adresi"
         },
         "creditCart":{
             "title":"Kredi Kartı Bilgileri"
