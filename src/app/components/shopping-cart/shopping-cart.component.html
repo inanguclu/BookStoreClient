@@ -301,30 +301,21 @@
 
                             <div class="row">
                                 <div class="col-3">
-                                    <input type="text" name="cardNumber1" [(ngModel)]="request.paymentCart.cardNumber">
+                                    <input type="text" class="form-control" name="cardNumber1" [(ngModel)]="cardNumber1">
                                 </div>
                                 <div class="col-3">
-                                    <input type="text" name="cardNumber2" [(ngModel)]="request.paymentCart.cardNumber">
+                                    <input type="text" class="form-control" name="cardNumber2" [(ngModel)]="cardNumber2">
                                 </div>
                                 <div class="col-3">
-                                    <input type="text" name="cardNumber3" [(ngModel)]="request.paymentCart.cardNumber">
+                                    <input type="text" class="form-control" name="cardNumber3" [(ngModel)]="cardNumber3">
                                 </div>
                                 <div class="col-3">
-                                    <input type="text" name="cardNumber4" [(ngModel)]="request.paymentCart.cardNumber">
+                                    <input type="text" class="form-control" name="cardNumber4" [(ngModel)]="cardNumber4">
                                 </div>
-                            </div>
-
-                            
-                            
-                            
-                            
+                            </div> 
                         </div>
                     </form>
-
                 </div>
-
-
-
             </div>
             <div class="modal-footer position-relative">
                 <button type="button" style="position: absolute; left:10px" *ngIf="selectedTab>1" class="btn btn-danger"
