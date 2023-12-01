@@ -24,6 +24,7 @@
             "gsmNumber": "Telefon Numarası"
         },
         "address":"Adres Bilgileri",
+        "isSameAddress":"Teslim Ve Fatura Adresi Aynı",
         "shippingAddress":{
             "title":"Teslim Adresi",
             "country":"Ülke",
