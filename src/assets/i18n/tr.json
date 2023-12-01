@@ -42,7 +42,9 @@
             "description":"Açık Adresi"
         },
         "creditCart":{
-            "title":"Kredi Kartı Bilgileri"
+            "title":"Kredi Kartı Bilgileri",
+            "cardHolderName":"Kart Sahibinin Adı",
+            "cardNumber":"Kart Numarası"
         }
     }
 }
