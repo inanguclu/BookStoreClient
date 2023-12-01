@@ -288,7 +288,10 @@
                 <div *ngIf="selectedTab===3">
                     <form creditCartForm="ngForm" autocomplete="off">
                         <div class="form-group mt-3">
-                            <label for=""></label>
+                            <label for="cardHolderName">
+                                {{'buyer.creditCart.cardHolderName'|translate}}
+                            </label>
+                            <input type="text" [(ngModel)]="request.paymentCart.cardHolderName">
 
                         </div>
                     </form>
