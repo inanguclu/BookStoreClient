@@ -18,10 +18,10 @@ export class ShoppingCartComponent {
   countries=Countries;
   cities=Cities;
   isSameAddress:boolean=false;
-  cardNumber1:number=0;
-  cardNumber2:number=0;
-  cardNumber3:number=0;
-  cardNumber4:number=0;
+  cardNumber1:string="";
+  cardNumber2:string="";
+  cardNumber3:string="";
+  cardNumber4:string="";
 
 
 
