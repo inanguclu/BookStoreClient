@@ -45,8 +45,7 @@
             "title":"Kredi Kartı Bilgileri",
             "cardHolderName":"Kart Sahibinin Adı",
             "cardNumber":"Kart Numarası",
-            "expireMonth":"Son Kullanma Ayı",
-            "expireYear":"Son Kullanma Yılı",
+            "expireMonthAndYear":"Son Kullanma Tarihi",
             "cvc":"CVC"
         }
     }

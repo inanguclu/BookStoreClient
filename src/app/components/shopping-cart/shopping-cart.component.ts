@@ -22,6 +22,7 @@ export class ShoppingCartComponent {
   cardNumber2:string="";
   cardNumber3:string="";
   cardNumber4:string="";
+  expireMonthAndYear:string="";
 
 
 

@@ -302,57 +302,45 @@
                                 {{'payment.creditCart.cardNumber'|translate}}
                             </label>
                             <div class="row">
-                                <div class="col-3">
-                                    <input type="text" class="form-control" name="cardNumber1"
+                                <div class="col-2">
+                                    <input maxlength="4" type="text" class="form-control" name="cardNumber1"
                                         [(ngModel)]="cardNumber1">
                                 </div>
-                                <div class="col-3">
-                                    <input type="text" class="form-control" name="cardNumber2"
+                                <div class="col-2">
+                                    <input maxlength="4" type="text" class="form-control" name="cardNumber2"
                                         [(ngModel)]="cardNumber2">
                                 </div>
-                                <div class="col-3">
-                                    <input type="text" class="form-control" name="cardNumber3"
+                                <div class="col-2">
+                                    <input maxlength="4" type="text" class="form-control" name="cardNumber3"
                                         [(ngModel)]="cardNumber3">
                                 </div>
-                                <div class="col-3">
-                                    <input type="text" class="form-control" name="cardNumber4"
+                                <div class="col-2">
+                                    <input maxlength="4" type="text" class="form-control" name="cardNumber4"
                                         [(ngModel)]="cardNumber4">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
-                            <!--Expire Month-->
-                            <div class="col-4">
+                            <!--Expire Month /Expire Year-->
+                            <div class="col-3">
                                 <div class="form-group mt-3">
-                                    <label for="expireMonth">
-                                        {{'payment.creditCart.expireMonth'|translate}}
+                                    <label for="expireMonthAndYear">
+                                        {{'payment.creditCart.expireMonthAndYear'|translate}}
                                     </label>
-                                    <input type="text" class="form-control" name="expireMonth"
+                                    <input maxlength="5" type="text" class="form-control" name="expireMonthAndYear"
                                         [(ngModel)]="request.paymentCart.expireMonth">
-                                </div>
-                            </div>
-
-                            <!--Expire Year-->
-
-                            <div class="col-4">
-                                <div class="form-group mt-3">
-                                    <label for="expireYear">
-                                        {{'payment.creditCart.expireYear'|translate}}
-                                    </label>
-                                    <input type="text" class="form-control" name="expireYear"
-                                        [(ngModel)]="request.paymentCart.expireYear">
                                 </div>
                             </div>
 
 
                             <!--Cvc-->
-                            <div class="col-4">
+                            <div class="col-3">
                                 <div class="form-group mt-3">
                                     <label for="cvc">
                                         {{'payment.creditCart.cvc'|translate}}
                                     </label>
-                                    <input type="text" class="form-control" name="cvc"
-                                        [(ngModel)]="request.paymentCart.cvc">
+                                    <input maxlength="3" type="text" class="form-control" name="cvc"
+                                        [(ngModel)]="expireMonthAndYear">
                                 </div>
                             </div>
                         </div>
