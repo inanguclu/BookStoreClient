@@ -287,6 +287,8 @@
                 <!--creditCart-->
                 <div *ngIf="selectedTab===3">
                     <form creditCartForm="ngForm" autocomplete="off">
+
+                        <!--card Holder Name-->
                         <div class="form-group mt-3">
                             <label for="cardHolderName">
                                 {{'payment.creditCart.cardHolderName'|translate}}
@@ -294,6 +296,7 @@
                             <input type="text" class="form-control" name="cardHolderName" [(ngModel)]="request.paymentCart.cardHolderName">
                         </div>
                         <div class="form-group mt-3">
+                            <!--card Number-->
                             <label for="cardNumber">
                                 {{'payment.creditCart.cardNumber'|translate}}
                             </label>
@@ -311,6 +314,14 @@
                                     <input type="text" class="form-control" name="cardNumber4" [(ngModel)]="cardNumber4">
                                 </div>
                             </div> 
+                        </div>
+                        <div class="row">
+                            <!--Expire Mounth-->
+                            <div class="col-4"></div>
+
+                            <!--Expire Year-->
+                            <div class="col-4"></div>
+                            <div class="col-4"></div>
                         </div>
                     </form>
                 </div>
