@@ -12,6 +12,7 @@ import { Cities, Countries } from 'src/app/constants/address';
 export class ShoppingCartComponent {
 
 
+  [key: string]:any;
   language: string = "en";
   selectedTab: number = 1;
   request: PaymentModel = new PaymentModel();
@@ -52,28 +53,12 @@ export class ShoppingCartComponent {
     }
   }
 
+
   gotoNextInputIf4Lenght(inputCount: string = "", value: string = "") {
 
-    switch (inputCount) {
-      case "1":
-        this.cartNumber1 = value.replace(/[^0-9]/g, "");
-        break;
 
-      case "2":
-        this.cartNumber2 = value.replace(/[^0-9]/g, "");
-        break;
-
-      case "3":
-        this.cartNumber3 = value.replace(/[^0-9]/g, "");
-        break;
-        
-      case "4":
-        this.cartNumber4 = value.replace(/[^0-9]/g, "");
-        break;
-
-      default:
-        break;
-    }
+    this[`cartNumber${inputCount}`] = value.replace(/[^0-9]/g,"");
+    value=value.replace(/[^0-9]/g,"");
 
 
     if (value.length === 4) {
@@ -89,8 +74,17 @@ export class ShoppingCartComponent {
   }
 
   setExpireMonthAndYear() {
-    if (this.request.paymentCart.expireMonthAndYear.length === 2) {
-      this.request.paymentCart.expireMonthAndYear += "/";
+    //sadece sayıları kabul ediyoruz 
+    this.expireMonthAndYear=this.expireMonthAndYear.replace(/[^0-9/]/g,"");
+
+    // eger string uzunlugu 2den buyukse 2 ve 3 arasındaysa / ekliyoruz 
+    if(this.expireMonthAndYear.length>2){
+      this.expireMonthAndYear=this.expireMonthAndYear.substring(0,2)+"/"+this.expireMonthAndYear.substring(2);
+    }
+
+    //sadece ilk 5 karakteri (mm/yy) formamtında saklıyoruz 
+    if(this.expireMonthAndYear.length>5){
+      this.expireMonthAndYear=this.expireMonthAndYear.substring(0,5);
     }
   }
 }
