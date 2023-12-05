@@ -75,11 +75,7 @@ export class ShoppingCartComponent {
 
   setExpireMonthAndYear() {
     //sadece sayıları kabul ediyoruz 
-    this.expireMonthAndYear = this.expireMonthAndYear.replace(/[^0-9/]/g, "");
-
-
-    if (+this.expireMonthAndYear.substring(0, 2) > 12) {
-    }
+    this.expireMonthAndYear = this.expireMonthAndYear.replace(/[^0-9]/g, "");
 
 
     // eger string uzunlugu 2den buyukse 2 ve 3 arasındaysa / ekliyoruz 
@@ -96,6 +92,11 @@ export class ShoppingCartComponent {
       }else if(month>12){
         this.expireMonthAndYear="12"+this.expireMonthAndYear.substring(2);
       }
+    }
+
+    if(this.expireMonthAndYear.length>4){
+      const el= document.getElementById("cvc");
+      el?.focus();
     }
   }
 }
