@@ -66,8 +66,8 @@ export class ShoppingCartComponent {
   }
 
   setExpireMonthAndYear() {
-    if (this.expireMonthAndYear.length === 2) {
-      this.expireMonthAndYear += "/"
+    if (this.request.paymentCart.expireMonthAndYear.length === 2) {
+        this.request.paymentCart.expireMonthAndYear += "/";
     }
-  }
+}
 }
