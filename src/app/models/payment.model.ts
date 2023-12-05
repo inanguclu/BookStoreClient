@@ -35,7 +35,8 @@ export class PaymentCardModel {
 
     cardHolderName: string = "";
     cardNumber: string = "";
-    expireMonthAndYear: string = "";
+    expireMonth: string = "";
+    expireYear: string = "";
     cvc: string = "";
 
 }

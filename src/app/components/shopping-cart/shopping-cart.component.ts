@@ -48,14 +48,16 @@ export class ShoppingCartComponent {
 
 
   payment() {
+    this.request.paymentCart.expireMonth = this.expireMonthAndYear.substring(0,2);
+    this.request.paymentCart.expireYear = this.expireMonthAndYear.substring(3);
     this.shopping.payment(this.request,(res)=>{
-      
+
     })
    }
 
   changeIsSameAddress() {
     if (this.isSameAddress) {
-      this.request.billingAddress = { ...this.request.shippingAddress }
+      this.request.billingAddress =this.request.shippingAddress 
     }
   }
 

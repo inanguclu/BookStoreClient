@@ -326,14 +326,15 @@
                         </div>
                         <div class="row">
                             <!--Expire Month /Expire Year-->
-                            <div class="col-2">
+                            <div class="col-5">
                                 <div class="form-group mt-3">
                                     <label for="expireMonthAndYear">
                                         {{'payment.creditCart.expireMonthAndYear'|translate}}
                                     </label>
-                                    <input maxlength="5" (keyup)="setExpireMonthAndYear()" type="text"
+                                    <input (keyup)="setExpireMonthAndYear()" type="month"
                                         class="form-control" id="expireMonthAndYear" name="expireMonthAndYear"
                                         [(ngModel)]="expireMonthAndYear">
+                                        
                                 </div>
                             </div>
 
