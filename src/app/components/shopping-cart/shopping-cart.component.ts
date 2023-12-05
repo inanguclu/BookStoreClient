@@ -53,6 +53,25 @@ export class ShoppingCartComponent {
   }
 
   gotoNextInputIf4Lenght(inputCount: string = "", value: string = "") {
+
+    switch (inputCount) {
+      case "1":
+        this.cartNumber1 = value.replace(/[^0-9]/g, "");
+        break;
+
+      case "2":
+        this.cartNumber1 = value.replace(/[^0-9]/g, "");
+        break;
+
+      case "3":
+        this.cartNumber1 = value.replace(/[^0-9]/g, "");
+        break;
+
+      default:
+        break;
+    }
+
+
     if (value.length === 4) {
       if (inputCount === "4") {
         const el = document.getElementById("expireMonthAndYear")
@@ -67,7 +86,7 @@ export class ShoppingCartComponent {
 
   setExpireMonthAndYear() {
     if (this.request.paymentCart.expireMonthAndYear.length === 2) {
-        this.request.paymentCart.expireMonthAndYear += "/";
+      this.request.paymentCart.expireMonthAndYear += "/";
     }
-}
+  }
 }
