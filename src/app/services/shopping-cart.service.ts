@@ -3,6 +3,7 @@ import { SwalService } from './swal.service';
 import { TranslateService } from '@ngx-translate/core';
 import { forkJoin } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { PaymentModel } from '../models/payment.model';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,7 @@ export class ShoppingCartService {
   constructor(
     private swal: SwalService,
     private translate: TranslateService,
-    private http:HttpClient
+    private http: HttpClient
   ) {
     if (localStorage.getItem("shoppingCarts")) {
       const carts: string | null = (localStorage.getItem("shoppingCarts"));
@@ -64,31 +65,31 @@ export class ShoppingCartService {
   removeByIndex(index: number) {
 
     forkJoin({
-      doYouWantToDeleted:this.translate.get("remove.doYouWantToDeleted"),
-      cancelBtn:this.translate.get("remove.cancelBtn"),
-      confirmBtn:this.translate.get("remove.confirmBtn")
-    }).subscribe(res=>{
-      this.swal.callSwall(res.doYouWantToDeleted,res.cancelBtn,res.confirmBtn, () => {
+      doYouWantToDeleted: this.translate.get("remove.doYouWantToDeleted"),
+      cancelBtn: this.translate.get("remove.cancelBtn"),
+      confirmBtn: this.translate.get("remove.confirmBtn")
+    }).subscribe(res => {
+      this.swal.callSwall(res.doYouWantToDeleted, res.cancelBtn, res.confirmBtn, () => {
 
-      this.shoppingCarts.splice(index, 1);
-      localStorage.setItem("shoppingCarts", JSON.stringify(this.shoppingCarts));
-      this.count = this.shoppingCarts.length;
-      this.calcTotal();
-    });
+        this.shoppingCarts.splice(index, 1);
+        localStorage.setItem("shoppingCarts", JSON.stringify(this.shoppingCarts));
+        this.count = this.shoppingCarts.length;
+        this.calcTotal();
+      });
     })
 
-    
+
 
 
     //buraya devam edecegiz
   }
 
-  payment(currency:string){
-    const newList=this.shoppingCarts.filter(p=>p.price.currency===currency);
-    this.http.post("https://localhost:7127/api/ShoppingCarts/Payment",{books:newList})
-    .subscribe(res=>{
-      //burası sonra doldurulacak
-    })
+  payment(data: PaymentModel, callBack: (res: any) => void) {
+
+    this.http.post("https://localhost:7127/api/ShoppingCarts/Payment", data)
+      .subscribe(res => {
+        callBack(res);
+      })
 
   }
 }

@@ -45,7 +45,13 @@ export class ShoppingCartComponent {
     this.selectedTab = tabNumber;
 
   }
-  payment() { }
+
+
+  payment() {
+    this.shopping.payment(this.request,(res)=>{
+      
+    })
+   }
 
   changeIsSameAddress() {
     if (this.isSameAddress) {
