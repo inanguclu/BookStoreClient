@@ -54,7 +54,9 @@ export class ShoppingCartComponent {
 
   gotoNextInputIf4Lenght(inputCount:string="",value:string=""){
     if(value.length===4){
-      const el:any=document.getElementsByName(`cartNumber${inputCount} input`)
+      const id:string=`cartNumber${+inputCount+1}`
+      const el:HTMLInputElement=document.getElementById(id)as HTMLInputElement
+      el.focus();
     }
 
   }
