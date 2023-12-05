@@ -14,15 +14,15 @@ export class ShoppingCartComponent {
 
   language: string = "en";
   selectedTab: number = 1;
-  request:PaymentModel=new PaymentModel();
-  countries=Countries;
-  cities=Cities;
-  isSameAddress:boolean=false;
-  cardNumber1:string="";
-  cardNumber2:string="";
-  cardNumber3:string="";
-  cardNumber4:string="";
-  expireMonthAndYear:string="";
+  request: PaymentModel = new PaymentModel();
+  countries = Countries;
+  cities = Cities;
+  isSameAddress: boolean = false;
+  cardNumber1: string = "";
+  cardNumber2: string = "";
+  cardNumber3: string = "";
+  cardNumber4: string = "";
+  expireMonthAndYear: string = "";
 
 
 
@@ -36,28 +36,32 @@ export class ShoppingCartComponent {
 
 
     this.shopping.calcTotal();
-    this.request.books=this.shopping.shoppingCarts;
+    this.request.books = this.shopping.shoppingCarts;
 
   }
 
-  changeTab(tabNumber:number){
-    this.selectedTab=tabNumber;
+  changeTab(tabNumber: number) {
+    this.selectedTab = tabNumber;
 
   }
-  payment(){}
+  payment() { }
 
-  changeIsSameAddress(){
-    if(this.isSameAddress){
-      this.request.billingAddress={...this.request.shippingAddress}
+  changeIsSameAddress() {
+    if (this.isSameAddress) {
+      this.request.billingAddress = { ...this.request.shippingAddress }
     }
   }
 
-  gotoNextInputIf4Lenght(inputCount:string="",value:string=""){
-    if(value.length===4){
-      const id:string=`cartNumber${+inputCount+1}`
-      const el:HTMLInputElement=document.getElementById(id)as HTMLInputElement
-      el.focus();
+  gotoNextInputIf4Lenght(inputCount: string = "", value: string = "") {
+    if (value.length === 4) {
+      if (inputCount === "4") {
+        const el = document.getElementById("expireMonthAndYear")
+        el?.focus();
+      } else {
+        const id: string = `cartNumber${+inputCount + 1}`
+        const el: HTMLInputElement = document.getElementById(id) as HTMLInputElement
+        el.focus();
+      }
     }
-
   }
 }
