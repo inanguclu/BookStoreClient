@@ -60,11 +60,15 @@ export class ShoppingCartComponent {
         break;
 
       case "2":
-        this.cartNumber1 = value.replace(/[^0-9]/g, "");
+        this.cartNumber2 = value.replace(/[^0-9]/g, "");
         break;
 
       case "3":
-        this.cartNumber1 = value.replace(/[^0-9]/g, "");
+        this.cartNumber3 = value.replace(/[^0-9]/g, "");
+        break;
+        
+      case "4":
+        this.cartNumber4 = value.replace(/[^0-9]/g, "");
         break;
 
       default:
