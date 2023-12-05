@@ -303,20 +303,24 @@
                             </label>
                             <div class="row">
                                 <div class="col-2">
-                                    <input maxlength="4" (keyup)="gotoNextInputIf4Lenght('1',cardNumber1)" type="text" class="form-control" name="cardNumber1" id="cardNumber1"
-                                        [(ngModel)]="cardNumber1">
+                                    <input maxlength="4" (keyup)="gotoNextInputIf4Lenght('1',cartNumber1)" type="text"
+                                        class="form-control" name="cartNumber1" id="cartNumber1"
+                                        [(ngModel)]="cartNumber1">
                                 </div>
                                 <div class="col-2">
-                                    <input maxlength="4" (keyup)="gotoNextInputIf4Lenght('2',cardNumber2)" type="text" class="form-control" name="cardNumber2" id="cardNumber2"
-                                        [(ngModel)]="cardNumber2">
+                                    <input maxlength="4" (keyup)="gotoNextInputIf4Lenght('2',cartNumber2)" type="text"
+                                        class="form-control" name="cartNumber2" id="cartNumber2"
+                                        [(ngModel)]="cartNumber2">
                                 </div>
                                 <div class="col-2">
-                                    <input maxlength="4" (keyup)="gotoNextInputIf4Lenght('3',cardNumber3)" type="text" class="form-control" name="cardNumber3" id="cardNumber3"
-                                        [(ngModel)]="cardNumber3">
+                                    <input maxlength="4" (keyup)="gotoNextInputIf4Lenght('3',cartNumber3)" type="text"
+                                        class="form-control" name="cartNumber3" id="cartNumber3"
+                                        [(ngModel)]="cartNumber3">
                                 </div>
                                 <div class="col-2">
-                                    <input maxlength="4" (keyup)="gotoNextInputIf4Lenght('4',cardNumber4)" type="text" class="form-control" name="cardNumber4" id="cardNumber4"
-                                        [(ngModel)]="cardNumber4">
+                                    <input maxlength="4" (keyup)="gotoNextInputIf4Lenght('4',cartNumber4)" type="text"
+                                        class="form-control" name="cartNumber4" id="cartNumber4"
+                                        [(ngModel)]="cartNumber4">
                                 </div>
                             </div>
                         </div>
@@ -327,8 +331,8 @@
                                     <label for="expireMonthAndYear">
                                         {{'payment.creditCart.expireMonthAndYear'|translate}}
                                     </label>
-                                    <input maxlength="5" type="text" class="form-control" id="expireMonthAndYear" name="expireMonthAndYear"
-                                        [(ngModel)]="request.paymentCart.expireMonthAndYear">
+                                    <input maxlength="5" (keyup)="setExpireMonthAndYear()" type="text" class="form-control" id="expireMonthAndYear"
+                                        name="expireMonthAndYear" [(ngModel)]="request.paymentCart.expireMonthAndYear">
                                 </div>
                             </div>
 

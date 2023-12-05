@@ -18,10 +18,10 @@ export class ShoppingCartComponent {
   countries = Countries;
   cities = Cities;
   isSameAddress: boolean = false;
-  cardNumber1: string = "";
-  cardNumber2: string = "";
-  cardNumber3: string = "";
-  cardNumber4: string = "";
+  cartNumber1: string = "";
+  cartNumber2: string = "";
+  cartNumber3: string = "";
+  cartNumber4: string = "";
   expireMonthAndYear: string = "";
 
 
@@ -62,6 +62,12 @@ export class ShoppingCartComponent {
         const el: HTMLInputElement = document.getElementById(id) as HTMLInputElement
         el.focus();
       }
+    }
+  }
+
+  setExpireMonthAndYear() {
+    if (this.expireMonthAndYear.length === 2) {
+      this.expireMonthAndYear += "/"
     }
   }
 }
