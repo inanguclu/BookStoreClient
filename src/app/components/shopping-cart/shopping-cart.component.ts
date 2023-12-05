@@ -12,7 +12,7 @@ import { Cities, Countries } from 'src/app/constants/address';
 export class ShoppingCartComponent {
 
 
-  [key: string]:any;
+  [key: string]: any;
   language: string = "en";
   selectedTab: number = 1;
   request: PaymentModel = new PaymentModel();
@@ -57,8 +57,8 @@ export class ShoppingCartComponent {
   gotoNextInputIf4Lenght(inputCount: string = "", value: string = "") {
 
 
-    this[`cartNumber${inputCount}`] = value.replace(/[^0-9]/g,"");
-    value=value.replace(/[^0-9]/g,"");
+    this[`cartNumber${inputCount}`] = value.replace(/[^0-9]/g, "");
+    value = value.replace(/[^0-9]/g, "");
 
 
     if (value.length === 4) {
@@ -75,16 +75,27 @@ export class ShoppingCartComponent {
 
   setExpireMonthAndYear() {
     //sadece sayıları kabul ediyoruz 
-    this.expireMonthAndYear=this.expireMonthAndYear.replace(/[^0-9/]/g,"");
+    this.expireMonthAndYear = this.expireMonthAndYear.replace(/[^0-9/]/g, "");
 
-    // eger string uzunlugu 2den buyukse 2 ve 3 arasındaysa / ekliyoruz 
-    if(this.expireMonthAndYear.length>2){
-      this.expireMonthAndYear=this.expireMonthAndYear.substring(0,2)+"/"+this.expireMonthAndYear.substring(2);
+
+    if (+this.expireMonthAndYear.substring(0, 2) > 12) {
     }
 
-    //sadece ilk 5 karakteri (mm/yy) formamtında saklıyoruz 
-    if(this.expireMonthAndYear.length>5){
-      this.expireMonthAndYear=this.expireMonthAndYear.substring(0,5);
+
+    // eger string uzunlugu 2den buyukse 2 ve 3 arasındaysa / ekliyoruz 
+    if (this.expireMonthAndYear.length > 2) {
+      this.expireMonthAndYear = this.expireMonthAndYear.substring(0, 2) + "/" + this.expireMonthAndYear.substring(2);
+    }
+
+
+    //ayın 01 ile 12 arasıdna olup olmadıgını kontrol ediyoruz
+    if(this.expireMonthAndYear.length>=2){
+      const month=parseInt(this.expireMonthAndYear.substring(0,2))
+      if(month===0){
+        this.expireMonthAndYear="01"+this.expireMonthAndYear.substring(2);
+      }else if(month>12){
+        this.expireMonthAndYear="12"+this.expireMonthAndYear.substring(2);
+      }
     }
   }
 }
