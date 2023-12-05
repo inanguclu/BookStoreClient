@@ -303,7 +303,7 @@
                             </label>
                             <div class="row">
                                 <div class="col-2">
-                                    <input maxlength="4" type="text" class="form-control" name="cardNumber1"
+                                    <input maxlength="4" (keypress)="gotoNextInputIf4Lenght('1',cardNumber1)" type="text" class="form-control" name="cardNumber1"
                                         [(ngModel)]="cardNumber1">
                                 </div>
                                 <div class="col-2">

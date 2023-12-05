@@ -51,4 +51,11 @@ export class ShoppingCartComponent {
       this.request.billingAddress={...this.request.shippingAddress}
     }
   }
+
+  gotoNextInputIf4Lenght(inputCount:string="",value:string=""){
+    if(value.length===4){
+      const el:any=document.getElementsByName(`cartNumber${inputCount} input`)
+    }
+
+  }
 }
