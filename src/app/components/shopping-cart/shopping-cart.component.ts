@@ -19,11 +19,11 @@ export class ShoppingCartComponent {
   countries = Countries;
   cities = Cities;
   isSameAddress: boolean = false;
-  cartNumber1: string = "";
-  cartNumber2: string = "";
-  cartNumber3: string = "";
-  cartNumber4: string = "";
-  expireMonthAndYear: string = "";
+  cartNumber1: string = "5890";
+  cartNumber2: string = "0400";
+  cartNumber3: string = "0000";
+  cartNumber4: string = "0016";
+  expireMonthAndYear: string = "2023-07";
 
 
 
@@ -48,16 +48,19 @@ export class ShoppingCartComponent {
 
 
   payment() {
-    this.request.paymentCart.expireMonth = this.expireMonthAndYear.substring(0,2);
-    this.request.paymentCart.expireYear = this.expireMonthAndYear.substring(3);
-    this.shopping.payment(this.request,(res)=>{
+    this.request.paymentCart.expireMonth = this.expireMonthAndYear.substring(5);
+    this.request.paymentCart.expireYear = this.expireMonthAndYear.substring(0, 4);
+    this.request.paymentCart.cardNumber = this.cartNumber1 + this.cartNumber2 + this.cartNumber3 + this.cartNumber4;
+
+
+    this.shopping.payment(this.request, (res) => {
 
     })
-   }
+  }
 
   changeIsSameAddress() {
     if (this.isSameAddress) {
-      this.request.billingAddress =this.request.shippingAddress 
+      this.request.billingAddress = this.request.shippingAddress
     }
   }
 
@@ -93,17 +96,17 @@ export class ShoppingCartComponent {
 
 
     //ayın 01 ile 12 arasıdna olup olmadıgını kontrol ediyoruz
-    if(this.expireMonthAndYear.length>=2){
-      const month=parseInt(this.expireMonthAndYear.substring(0,2))
-      if(month===0){
-        this.expireMonthAndYear="01"+this.expireMonthAndYear.substring(2);
-      }else if(month>12){
-        this.expireMonthAndYear="12"+this.expireMonthAndYear.substring(2);
+    if (this.expireMonthAndYear.length >= 2) {
+      const month = parseInt(this.expireMonthAndYear.substring(0, 2))
+      if (month === 0) {
+        this.expireMonthAndYear = "01" + this.expireMonthAndYear.substring(2);
+      } else if (month > 12) {
+        this.expireMonthAndYear = "12" + this.expireMonthAndYear.substring(2);
       }
     }
 
-    if(this.expireMonthAndYear.length>4){
-      const el= document.getElementById("cvc");
+    if (this.expireMonthAndYear.length > 4) {
+      const el = document.getElementById("cvc");
       el?.focus();
     }
   }
