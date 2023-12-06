@@ -5,7 +5,7 @@ export class PaymentModel {
     buyer: BuyerModel = new BuyerModel();
     shippingAddress: AddressModel = new AddressModel();
     billingAddress: AddressModel = new AddressModel();
-    paymentCart: PaymentCardModel = new PaymentCardModel();
+    paymentCard: PaymentCardModel = new PaymentCardModel();
 }
 export class BuyerModel {
 
@@ -37,6 +37,5 @@ export class PaymentCardModel {
     cardNumber: string = "";
     expireMonth: string = "";
     expireYear: string = "";
-    cvc: string = "323";
-
+    cvc: string = "323"; //şimdi dene düşecek mi //Allah seni etmesin demi :ÇD
 }

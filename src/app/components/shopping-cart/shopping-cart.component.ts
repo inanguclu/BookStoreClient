@@ -48,9 +48,9 @@ export class ShoppingCartComponent {
 
 
   payment() {
-    this.request.paymentCart.expireMonth = this.expireMonthAndYear.substring(5);
-    this.request.paymentCart.expireYear = this.expireMonthAndYear.substring(0, 4);
-    this.request.paymentCart.cardNumber = this.cartNumber1 + this.cartNumber2 + this.cartNumber3 + this.cartNumber4;
+    this.request.paymentCard.expireMonth = this.expireMonthAndYear.substring(5);
+    this.request.paymentCard.expireYear = this.expireMonthAndYear.substring(0, 4);
+    this.request.paymentCard.cardNumber = this.cartNumber1 + this.cartNumber2 + this.cartNumber3 + this.cartNumber4;
 
 
     this.shopping.payment(this.request, (res) => {
