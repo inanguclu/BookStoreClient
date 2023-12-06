@@ -84,12 +84,14 @@ export class ShoppingCartService {
     //buraya devam edecegiz
   }
 
+  
+
   payment(data: PaymentModel, callBack: (res: any) => void) {
-
     this.http.post("https://localhost:7127/api/ShoppingCarts/Payment", data)
-      .subscribe(res => {
-        callBack(res);
-      })
-
+      .subscribe(
+        (res) => {
+          callBack(res);
+        }
+      );
   }
 }
