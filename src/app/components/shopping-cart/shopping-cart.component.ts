@@ -23,7 +23,7 @@ export class ShoppingCartComponent {
   cartNumber2: string = "0400";
   cartNumber3: string = "0000";
   cartNumber4: string = "0016";
-  expireMonthAndYear: string = "2023-07";
+  expireMonthAndYear: string = "2025-07";
 
 
 
