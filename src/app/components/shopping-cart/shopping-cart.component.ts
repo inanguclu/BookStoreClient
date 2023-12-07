@@ -53,9 +53,13 @@ export class ShoppingCartComponent {
     this.request.paymentCard.cardNumber = this.cartNumber1 + this.cartNumber2 + this.cartNumber3 + this.cartNumber4;
     this.request.buyer.registrationAddress=this.request.shippingAddress.description;
     this.request.buyer.city=this.request.shippingAddress.city;
-
-
+    this.request.buyer.country=this.request.shippingAddress.country;
+    
     this.shopping.payment(this.request, (res) => {
+      const btn=document.getElementById("paymentModalCloseBtn");
+      btn?.click();
+      localStorage.removeItem("shoppingCarts");
+      this.shopping.shoppingCarts=[];
 
     })
   }
