@@ -60,6 +60,7 @@ export class ShoppingCartComponent {
       btn?.click();
       localStorage.removeItem("shoppingCarts");
       this.shopping.shoppingCarts=[];
+      this.shopping.calcTotal();
 
     })
   }
