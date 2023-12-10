@@ -20,18 +20,22 @@ export class ShoppingCartService {
     private translate: TranslateService,
     private http: HttpClient
   ) {
+    this.checkLocalStoreForShoppingCarts();
+  }
+
+  checkLocalStoreForShoppingCarts(){
     if (localStorage.getItem("shoppingCarts")) {
       const carts: string | null = (localStorage.getItem("shoppingCarts"));
       if (carts !== null) {
         this.shoppingCarts = JSON.parse(carts)
         this.count = this.shoppingCarts.length;
       }
-
     }
-
-
-
   }
+
+
+
+
   calcTotal() {
 
     this.total = 0;
