@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { SwalService } from './swal.service';
 import { TranslateService } from '@ngx-translate/core';
 import { forkJoin } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { PaymentModel } from '../models/payment.model';
 
 @Injectable({
@@ -97,10 +97,13 @@ export class ShoppingCartService {
 
   payment(data: PaymentModel, callBack: (res: any) => void) {
     this.http.post("https://localhost:7127/api/ShoppingCarts/Payment", data)
-      .subscribe(
-        (res) => {
+      .subscribe({
+        next: (res:any)=>{
           callBack(res);
+        },
+        error: (err:HttpErrorResponse)=>{
+          console.log(err);
         }
-      );
+      });
   }
 }
