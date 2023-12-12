@@ -3,6 +3,7 @@ import { ShoppingCartService } from '../../services/shopping-cart.service';
 import { TranslateService } from '@ngx-translate/core';
 import { PaymentModel } from 'src/app/models/payment.model';
 import { Cities, Countries } from 'src/app/constants/address';
+import { SwalService } from 'src/app/services/swal.service';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -30,7 +31,9 @@ export class ShoppingCartComponent {
 
   constructor(
     public shopping: ShoppingCartService,
-    private translate: TranslateService) {
+    private translate: TranslateService,
+    private swal:SwalService
+    ) {
 
     if (localStorage.getItem("language")) {
       this.language = localStorage.getItem("language") as string;
@@ -48,7 +51,7 @@ export class ShoppingCartComponent {
 
   setSelectedPaymentCurrency(currency: string) {
     this.selectedCurrencyForPayment = currency;
-    const newBooks = this.request.books.filter(p => p.price.currency === this.selectedCurrencyForPayment);
+    const newBooks = this.shopping.shoppingCarts.filter(p => p.price.currency === this.selectedCurrencyForPayment);
     this.request.books = newBooks;
 
   }
@@ -65,9 +68,10 @@ export class ShoppingCartComponent {
     this.shopping.payment(this.request, (res) => {
       const btn = document.getElementById("paymentModalCloseBtn");
       btn?.click();
-      localStorage.removeItem("shoppingCarts");
-      this.shopping.shoppingCarts = [];
+      const remainShoppingCarts=this.shopping.shoppingCarts.filter(p=>p.price.currency !== this.selectedCurrencyForPayment);
+      localStorage.setItem("shoppingCarts",JSON.stringify(remainShoppingCarts));
       this.shopping.checkLocalStoreForShoppingCarts();
+      this.swal
 
     })
   }
