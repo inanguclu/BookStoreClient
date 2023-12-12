@@ -28,7 +28,6 @@ export class ShoppingCartService {
       const carts: string | null = (localStorage.getItem("shoppingCarts"));
       if (carts !== null) {
         this.shoppingCarts = JSON.parse(carts)
-        this.count = this.shoppingCarts.length;
       }
     }
 
@@ -40,6 +39,9 @@ export class ShoppingCartService {
 
 
   calcTotal() {
+
+    this.count = this.shoppingCarts.length;
+
 
     this.total = 0;
 

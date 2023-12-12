@@ -24,6 +24,7 @@ export class ShoppingCartComponent {
   cartNumber3: string = "0000";
   cartNumber4: string = "0016";
   expireMonthAndYear: string = "2025-07";
+  selectedCurrencyForPayment: string = "₺";
 
 
 
@@ -45,20 +46,27 @@ export class ShoppingCartComponent {
 
   }
 
+  setSelectedPaymentCurrency(currency: string) {
+    this.selectedCurrencyForPayment = currency;
+    const newBooks = this.request.books.filter(p => p.price.currency === this.selectedCurrencyForPayment);
+    this.request.books = newBooks;
+
+  }
+
 
   payment() {
     this.request.paymentCard.expireMonth = this.expireMonthAndYear.substring(5);
     this.request.paymentCard.expireYear = this.expireMonthAndYear.substring(0, 4);
     this.request.paymentCard.cardNumber = this.cartNumber1 + this.cartNumber2 + this.cartNumber3 + this.cartNumber4;
-    this.request.buyer.registrationAddress=this.request.shippingAddress.description;
-    this.request.buyer.city=this.request.shippingAddress.city;
-    this.request.buyer.country=this.request.shippingAddress.country;
-    
+    this.request.buyer.registrationAddress = this.request.shippingAddress.description;
+    this.request.buyer.city = this.request.shippingAddress.city;
+    this.request.buyer.country = this.request.shippingAddress.country;
+
     this.shopping.payment(this.request, (res) => {
-      const btn=document.getElementById("paymentModalCloseBtn");
+      const btn = document.getElementById("paymentModalCloseBtn");
       btn?.click();
       localStorage.removeItem("shoppingCarts");
-      this.shopping.shoppingCarts=[];
+      this.shopping.shoppingCarts = [];
       this.shopping.checkLocalStoreForShoppingCarts();
 
     })
