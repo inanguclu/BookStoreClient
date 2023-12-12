@@ -21,7 +21,7 @@
                         placeholder="{{'search'|translate}}">
                 </div>
                 <ul class="categories">
-                    <li class="category">
+                    <li class="category loader-category" *ngFor="let l of loaderDatas">
                     </li>
                 </ul>
             </div>
@@ -32,32 +32,21 @@
             <span class="input-group-text" id="basic-addon1">
                 <i class="fa-solid fa-magnifying-glass"></i>
             </span>
-            <input 
-            [(ngModel)]="request.search" 
-            (keydown.enter)="getAll()" 
-            (search)="getAll()" 
-            type="search"
-            class="form-control" 
-            placeholder="{{'search'|translate}}">
+            <input [(ngModel)]="request.search" (keydown.enter)="getAll()" (search)="getAll()" type="search"
+                class="form-control" placeholder="{{'search'|translate}}">
         </div>
         <div class="row">
-            <div class="col-xl-4 col-md-6 col-12 mb-2">
+            <div class="col-xl-4 col-md-6 col-12 mb-2" *ngFor="let l of loaderDatas">
                 <div class="card text-center">
                     <div class="card-body">
-                        <img class="card-img-top mt-2 loading-img">
+                        <div class="card-img-top mt-2 loading-img"></div>
                     </div>
                     <div class="card-header">
-                        <h5 class="card-title">
-
-                        </h5>
-                        <p> 
-
-                        </p>
+                        <h5 class="card-title"></h5>
+                        <p></p>
                     </div>
                     <div class="card-body">
-                        <p class="card-text">
-
-                        </p>
+                        <p class="card-text"></p>
                         <button iconControl
                             class="btn btn-outline-secondary d-flex justify-content-between w-100 align-items-center">
                             <span></span>
@@ -114,7 +103,7 @@
                     </div>
                     <div class="card-body">
 
-                    
+
                         <p class="card-text"> {{b.summary}}</p>
                         <button iconControl
                             class="btn btn-outline-secondary d-flex justify-content-between w-100 align-items-center"

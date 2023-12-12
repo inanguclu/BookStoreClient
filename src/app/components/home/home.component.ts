@@ -19,6 +19,7 @@ export class HomeComponent {
   request: RequestModel = new RequestModel();
   searchCategory: string = "";
   newData: any[] = [];
+  loaderDatas=[1,2,3,4,5,6];
 
 
   constructor(
