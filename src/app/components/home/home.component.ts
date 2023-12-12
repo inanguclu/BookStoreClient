@@ -30,14 +30,7 @@ export class HomeComponent {
     private translate: TranslateService
 
   ) {
-    setTimeout(() => {
-      this.isLoading=true;
-      this.getCategories();
-    }, 2000);
-
-    
-    
-
+    this.getCategories();
 
   }
 
@@ -66,23 +59,23 @@ export class HomeComponent {
   }
 
   getAll() {
-    this.isLoading=true;
+    this.isLoading = true;
     this.http
       .post<any>(`https://localhost:7127/api/Books/GetAll/`, this.request)
       .subscribe(res => {
         this.books = res;
-        this.isLoading=false;
+        this.isLoading = false;
       })
   }
 
   getCategories() {
-    this.isLoading=true;
+    this.isLoading = true;
     this.http.get("https://localhost:7127/api/Categories/GetAll")
       .subscribe(res =>
         this.categories = res);
-        
+
     this.getAll();
-    this.isLoading=false;
+    this.isLoading = false;
 
   }
 

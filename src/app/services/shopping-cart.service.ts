@@ -4,6 +4,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { forkJoin } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { PaymentModel } from '../models/payment.model';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,8 @@ export class ShoppingCartService {
   constructor(
     private swal: SwalService,
     private translate: TranslateService,
-    private http: HttpClient
+    private http: HttpClient,
+    private spinner: NgxSpinnerService
   ) {
     this.checkLocalStoreForShoppingCarts();
   }
@@ -97,10 +99,12 @@ export class ShoppingCartService {
 
 
   payment(data: PaymentModel, callBack: (res: any) => void) {
+    this.spinner.show();
     this.http.post("https://localhost:7127/api/ShoppingCarts/Payment", data)
       .subscribe({
         next: (res: any) => {
           callBack(res);
+          this.spinner.hide();
         },
         error: (err: HttpErrorResponse) => {
           console.log(err);

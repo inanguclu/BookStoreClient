@@ -17,6 +17,7 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { TrCurrencyPipe } from 'tr-currency';
 import { HomeComponent } from './components/home/home.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 
@@ -41,6 +42,7 @@ export function HttpLoaderFactory(http:HttpClient){
     TrCurrencyPipe,
     SweetAlert2Module,
     InfiniteScrollModule,
+    NgxSpinnerModule,
     FormsModule,
     HttpClientModule,
     TranslateModule.forRoot({
