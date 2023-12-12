@@ -12,6 +12,7 @@
         "cancelBtn": "Vazgeç",
         "confirmBtn": "Sil"
     },
+    
     "payment": {
         "title": "Ödeme Sayfası",
         "pay":"Ödeme Yap",
