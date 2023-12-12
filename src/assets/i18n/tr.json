@@ -2,9 +2,10 @@
     "categories": "Kategoriler",
     "search": "Aranacak değer giriniz...",
     "homePage": "Ana Sayfa",
-    "allCategories": "Tüm Kategoriler",
-    "addBookInShoppingCartIsSuccessful": "Kitap başarıyla sepete eklendi",
     "shoppingCartPage": "Sepetim",
+    "allCategories": "Tüm Kategoriler",
+    "paymentIsSuccessful":"Ödeme işlemi başarıyla tamamlandı",
+    "addBookInShoppingCartIsSuccessful": "Kitap başarıyla sepete eklendi",
     "noBooksInShoppingCart": "Sepette Ürün Bulunmuyor !",
     "Bilim": "Bilim",
     "remove": {

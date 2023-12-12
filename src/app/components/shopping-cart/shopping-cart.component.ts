@@ -71,7 +71,10 @@ export class ShoppingCartComponent {
       const remainShoppingCarts=this.shopping.shoppingCarts.filter(p=>p.price.currency !== this.selectedCurrencyForPayment);
       localStorage.setItem("shoppingCarts",JSON.stringify(remainShoppingCarts));
       this.shopping.checkLocalStoreForShoppingCarts();
-      this.swal
+      this.translate.get("paymentIsSuccessful").subscribe(translate=>{
+        this.swal.callToast(translate,"success");
+      });
+      
 
     })
   }
