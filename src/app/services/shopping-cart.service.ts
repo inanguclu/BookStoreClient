@@ -14,6 +14,7 @@ export class ShoppingCartService {
   prices: { value: number, currency: string }[] = [];
   count: number = 0;
   total: number = 0;
+  isLoading: boolean = false;
 
   constructor(
     private swal: SwalService,
@@ -23,7 +24,7 @@ export class ShoppingCartService {
     this.checkLocalStoreForShoppingCarts();
   }
 
-  checkLocalStoreForShoppingCarts(){
+  checkLocalStoreForShoppingCarts() {
     if (localStorage.getItem("shoppingCarts")) {
       const carts: string | null = (localStorage.getItem("shoppingCarts"));
       if (carts !== null) {
@@ -93,15 +94,15 @@ export class ShoppingCartService {
     //buraya devam edecegiz
   }
 
-  
+
 
   payment(data: PaymentModel, callBack: (res: any) => void) {
     this.http.post("https://localhost:7127/api/ShoppingCarts/Payment", data)
       .subscribe({
-        next: (res:any)=>{
+        next: (res: any) => {
           callBack(res);
         },
-        error: (err:HttpErrorResponse)=>{
+        error: (err: HttpErrorResponse) => {
           console.log(err);
         }
       });

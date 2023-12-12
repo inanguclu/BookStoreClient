@@ -19,29 +19,36 @@ export class HomeComponent {
   request: RequestModel = new RequestModel();
   searchCategory: string = "";
   newData: any[] = [];
-  loaderDatas=[1,2,3,4,5,6];
+  loaderDatas = [1, 2, 3, 4, 5, 6];
+  isLoading: boolean = true;
 
 
   constructor(
     private http: HttpClient,
     private shopping: ShoppingCartService,
     private swal: SwalService,
-    private translate:TranslateService
+    private translate: TranslateService
 
   ) {
-    this.getCategories();
+    setTimeout(() => {
+      this.isLoading=true;
+      this.getCategories();
+    }, 2000);
 
     
+    
+
+
   }
 
   addShoppingCart(book: BookModel) {
     this.shopping.shoppingCarts.push(book)
     localStorage.setItem("shoppingCarts", JSON.stringify(this.shopping.shoppingCarts))
     this.shopping.count++;
-    this.translate.get("addBookInShoppingCartIsSuccessful").subscribe(res=>{
+    this.translate.get("addBookInShoppingCartIsSuccessful").subscribe(res => {
       this.swal.callToast(res);
     })
-    
+
 
   }
 
@@ -59,18 +66,23 @@ export class HomeComponent {
   }
 
   getAll() {
+    this.isLoading=true;
     this.http
       .post<any>(`https://localhost:7127/api/Books/GetAll/`, this.request)
       .subscribe(res => {
         this.books = res;
+        this.isLoading=false;
       })
   }
 
   getCategories() {
+    this.isLoading=true;
     this.http.get("https://localhost:7127/api/Categories/GetAll")
       .subscribe(res =>
         this.categories = res);
+        
     this.getAll();
+    this.isLoading=false;
 
   }
 
