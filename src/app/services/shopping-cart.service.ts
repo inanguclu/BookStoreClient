@@ -29,9 +29,11 @@ export class ShoppingCartService {
       if (carts !== null) {
         this.shoppingCarts = JSON.parse(carts)
         this.count = this.shoppingCarts.length;
-        this.calcTotal();
       }
     }
+
+    this.calcTotal();
+
   }
 
 
