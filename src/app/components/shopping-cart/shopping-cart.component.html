@@ -93,7 +93,7 @@
                     <form #buyerForm="ngForm" autocomplete="off">
                         <div class="row mt-3">
                             <!--Name-->
-                            <div class="col-6">
+                            <div class="col-lg-6 col-12">
                                 <div class="form-group ">
                                     <label for="name">{{'payment.buyer.name'|translate}}</label>
                                     <input type="text" [(ngModel)]="request.buyer.name" name="buyerName"
@@ -101,7 +101,7 @@
                                 </div>
                             </div>
                             <!--Surname-->
-                            <div class="col-6">
+                            <div class="col-lg-6 col-12">
                                 <div class="form-group">
                                     <label for="surname">{{'payment.buyer.surname'|translate}}</label>
                                     <input type="text" [(ngModel)]="request.buyer.surname" name="buyerSurname"
@@ -111,7 +111,7 @@
                         </div>
                         <div class="row mt-3">
                             <!--IdentityNumber-->
-                            <div class="col-4">
+                            <div class="col-lg-4 col-12">
                                 <div class="form-group">
                                     <label for="identityNumber">{{'payment.buyer.identityNumber'|translate}}</label>
                                     <input type="text" [(ngModel)]="request.buyer.identityNumber"
@@ -119,7 +119,7 @@
                                 </div>
                             </div>
                             <!--Email-->
-                            <div class="col-4">
+                            <div class="col-lg-4 col-12">
                                 <div class="form-group">
                                     <label for="email">{{'payment.buyer.email'|translate}}</label>
                                     <input type="email" [(ngModel)]="request.buyer.email" name="buyerEmail"
@@ -127,7 +127,7 @@
                                 </div>
                             </div>
                             <!--GsmNumber-->
-                            <div class="col-4">
+                            <div class="col-lg-4 col-12">
                                 <div class="form-group">
                                     <label for="name">{{'payment.buyer.gsmNumber'|translate}}</label>
                                     <input type="number" [(ngModel)]="request.buyer.gsmNumber" name="buyergsmNumber"
@@ -148,7 +148,7 @@
                         <div class="row mt-3">
 
                             <!--Country-->
-                            <div class="col-4">
+                            <div class="col-lg-4 col-12">
                                 <div class="form-group">
                                     <label for="country">{{'payment.shippingAddress.country'|translate}}</label>
                                     <select name="shippingCountry" class="form-control"
@@ -159,7 +159,7 @@
                             </div>
 
                             <!--City-->
-                            <div class="col-4">
+                            <div class="col-lg-4 col-12">
                                 <div class="form-group">
                                     <label for="city">{{'payment.shippingAddress.city'|translate}}</label>
                                     <select name="shippingCity" class="form-control"
@@ -170,21 +170,21 @@
                             </div>
 
                             <!--ZipCode-->
-                            <div class="col-4">
-                                <div class="col-4">
+                            
+                                <div class="col-lg-4 col-12">
                                     <div class="form-group">
                                         <label for="zipCode">{{'payment.shippingAddress.zipCode'|translate}}</label>
                                         <input type="text" [(ngModel)]="request.shippingAddress.zipCode"
                                             name="shippingZipCode" class="form-control">
                                     </div>
                                 </div>
-                            </div>
+                            
                         </div>
 
 
                         <div class="row mt-3">
                             <!--Contact Name-->
-                            <div class="col-6">
+                            <div class="col-lg-6 col-12">
                                 <div class="form-group">
                                     <label for="contactName">{{'payment.shippingAddress.contactName'|translate}}</label>
                                     <input type="text" [(ngModel)]="request.shippingAddress.contactName"
@@ -192,7 +192,7 @@
                                 </div>
                             </div>
                             <!--Description-->
-                            <div class="col-6">
+                            <div class="col-lg-6 col-12">
                                 <div class="form-group">
                                     <label for="description">{{'payment.shippingAddress.description'|translate}}</label>
                                     <input type="text" [(ngModel)]="request.shippingAddress.description"
@@ -214,7 +214,7 @@
                             <div class="row mt-3">
 
                                 <!--Country-->
-                                <div class="col-4">
+                                <div class="col-lg-4 col-12">
                                     <div class="form-group">
                                         <label
                                             for="billingCountry">{{'payment.billingAddress.country'|translate}}</label>
@@ -226,7 +226,7 @@
                                 </div>
 
                                 <!--City-->
-                                <div class="col-4">
+                                <div class="col-lg-4 col-12">
                                     <div class="form-group">
                                         <label for="billingCity">{{'payment.billingAddress.city'|translate}}</label>
                                         <select name="billingCity" class="form-control"
@@ -237,8 +237,8 @@
                                 </div>
 
                                 <!--ZipCode-->
-                                <div class="col-4">
-                                    <div class="col-4">
+                                
+                                    <div class="col-lg-4 col-12">
                                         <div class="form-group">
                                             <label
                                                 for="billingZipCode">{{'payment.billingAddress.zipCode'|translate}}</label>
@@ -246,13 +246,13 @@
                                                 name="billingZipCode" class="form-control">
                                         </div>
                                     </div>
-                                </div>
+                                
                             </div>
 
 
                             <div class="row mt-3">
                                 <!--Contact Name-->
-                                <div class="col-6">
+                                <div class="col-lg-6 col-12">
                                     <div class="form-group">
                                         <label
                                             for="contactName">{{'payment.billingAddress.contactName'|translate}}</label>
@@ -261,7 +261,7 @@
                                     </div>
                                 </div>
                                 <!--Description-->
-                                <div class="col-6">
+                                <div class="col-lg-6 col-12">
                                     <div class="form-group">
                                         <label
                                             for="description">{{'payment.billingAddress.description'|translate}}</label>
@@ -303,22 +303,22 @@
                                 {{'payment.creditCart.cardNumber'|translate}}
                             </label>
                             <div class="row">
-                                <div class="col-2">
+                                <div class="col-lg-2 col-3">
                                     <input maxlength="4" (keyup)="gotoNextInputIf4Lenght('1',cartNumber1)" type="text"
                                         class="form-control" name="cartNumber1" id="cartNumber1"
                                         [(ngModel)]="cartNumber1">
                                 </div>
-                                <div class="col-2">
+                                <div class="col-lg-2 col-3">
                                     <input maxlength="4" (keyup)="gotoNextInputIf4Lenght('2',cartNumber2)" type="text"
                                         class="form-control" name="cartNumber2" id="cartNumber2"
                                         [(ngModel)]="cartNumber2">
                                 </div>
-                                <div class="col-2">
+                                <div class="col-lg-2 col-3">
                                     <input maxlength="4" (keyup)="gotoNextInputIf4Lenght('3',cartNumber3)" type="text"
                                         class="form-control" name="cartNumber3" id="cartNumber3"
                                         [(ngModel)]="cartNumber3">
                                 </div>
-                                <div class="col-2">
+                                <div class="col-lg-2 col-3">
                                     <input maxlength="4" (keyup)="gotoNextInputIf4Lenght('4',cartNumber4)" type="text"
                                         class="form-control" name="cartNumber4" id="cartNumber4"
                                         [(ngModel)]="cartNumber4">
@@ -327,7 +327,7 @@
                         </div>
                         <div class="row">
                             <!--Expire Month /Expire Year-->
-                            <div class="col-5">
+                            <div class="col-lg-5 col-12">
                                 <div class="form-group mt-3">
                                     <label for="expireMonthAndYear">
                                         {{'payment.creditCart.expireMonthAndYear'|translate}}
@@ -341,7 +341,7 @@
 
 
                             <!--Cvc-->
-                            <div class="col-2">
+                            <div class="col-lg-2 col-12">
                                 <div class="form-group mt-3">
                                     <label for="cvc">
                                         {{'payment.creditCart.cvc'|translate}}

@@ -24,6 +24,7 @@ export class ShoppingCartService {
     private spinner: NgxSpinnerService
   ) {
     this.checkLocalStoreForShoppingCarts();
+    
   }
 
   checkLocalStoreForShoppingCarts() {

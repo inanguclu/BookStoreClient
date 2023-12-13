@@ -18,6 +18,7 @@ import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.
 import { TrCurrencyPipe } from 'tr-currency';
 import { HomeComponent } from './components/home/home.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations"
 
 
 
@@ -39,6 +40,7 @@ export function HttpLoaderFactory(http:HttpClient){
   imports: [
     BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
     TrCurrencyPipe,
     SweetAlert2Module,
     InfiniteScrollModule,

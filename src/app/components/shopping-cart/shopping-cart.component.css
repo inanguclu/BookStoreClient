@@ -32,11 +32,16 @@ li:hover {
     color: #dc3545;
 }
 
+@media screen and(max-width:1400) {
+    h1{
+        font-size: 1.5rem;
+    }
+}
 
 @media screen and (max-width:1200px) {
 
     h1{
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
     .col-lg-9{
         width: 74px;
