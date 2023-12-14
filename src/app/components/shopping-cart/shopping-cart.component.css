@@ -46,6 +46,9 @@ li:hover {
     .col-lg-9{
         width: 74px;
     }
+    img{
+        width: 100%;
+    }
 }
 @media screen and (max-width:990px) {
 
@@ -56,5 +59,6 @@ li:hover {
         width: 100%;
         margin-bottom: 10px;
     }
+   
 }
 
