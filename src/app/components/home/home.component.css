@@ -44,11 +44,13 @@
     padding: 20px 0px;
 }
 .loading{
-    animation:changeColor .1s infinite
+    background-image : linear-gradient(to bottom right,#ccc,#ccc);
+    animation:changeColor 1s infinite;
 }
 
 
 @keyframes changeColor{
-    0%{background-image : linear-gradient(to bottom right,#ccc,#f1f1f1)};
-    100%{background-image : linear-gradient(to bottom right,#f1f1f1,#ccc)};
+    0%{background-image : linear-gradient(to bottom right,#f1f1f1,#ccc)};
+    50%{background-image : linear-gradient(to bottom right,#ccc,#f1f1f1)};
+    100%{background-image : linear-gradient(to bottom right,#ccc,#ccc)};
 }
