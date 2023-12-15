@@ -44,5 +44,5 @@
     padding: 20px 0px;
 }
 .loading{
-    background-color: #f1f1f1;
+    background-color : linear-gradient(to bottom right,red,yellow);
 }
