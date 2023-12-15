@@ -44,5 +44,9 @@
     padding: 20px 0px;
 }
 .loading{
-    background-color : linear-gradient(to bottom right,red,yellow);
+    background-color : linear-gradient(to bottom right,#ccc,#f1f1f1);
+}
+
+.loading2{
+    background-color : linear-gradient(to bottom right,#f1f1f1,#ccc);
 }
