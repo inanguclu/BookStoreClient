@@ -45,6 +45,11 @@
 }
 .loading{
     background-image : linear-gradient(to bottom right,#ccc,#f1f1f1);
+    animation:changeColor .1s infinite
+}
+@keyframes changeColor{
+    0%{background-image : linear-gradient(to bottom right,#ccc,#f1f1f1)};
+    100%{background-image : linear-gradient(to bottom right,#f1f1f1,#ccc)};
 }
 
 .loading2{
