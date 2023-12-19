@@ -30,7 +30,10 @@ export class HomeComponent {
     private translate: TranslateService
 
   ) {
-    this.getCategories();
+    setTimeout(() => {
+      this.getCategories();
+    }, 2000);
+    
 
   }
 
