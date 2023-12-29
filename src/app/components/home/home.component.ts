@@ -30,11 +30,7 @@ export class HomeComponent {
     private translate: TranslateService
 
   ) {
-    setTimeout(() => {
-      this.getCategories();
-    }, 2000);
-    
-
+    this.getCategories();
   }
 
   addShoppingCart(book: BookModel) {
@@ -44,8 +40,6 @@ export class HomeComponent {
     this.translate.get("addBookInShoppingCartIsSuccessful").subscribe(res => {
       this.swal.callToast(res);
     })
-
-
   }
 
   feedData() {
@@ -64,10 +58,12 @@ export class HomeComponent {
   getAll() {
     this.isLoading = true;
     this.http
-      .post<any>(`https://localhost:7127/api/Books/GetAll/`, this.request)
+      .post<BookModel[]>(`https://localhost:7127/api/Books/GetAll/`, this.request)
       .subscribe(res => {
-        this.books = res;
-        this.isLoading = false;
+        this.books=res;
+        this.isLoading=false;
+        
+        
       })
   }
 
