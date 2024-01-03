@@ -4,7 +4,7 @@ import { Directive, ElementRef, HostListener } from '@angular/core';
   selector: '[zoom]'
 })
 export class ZoomDirective {
-  width:number=0;
+  width : string = "";
 
   constructor(
     private el:ElementRef<HTMLDivElement>
