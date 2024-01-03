@@ -18,7 +18,8 @@ import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.
 import { TrCurrencyPipe } from 'tr-currency';
 import { HomeComponent } from './components/home/home.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations"
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { ZoomDirective } from './directives/zoom.directive';
 
 
 
@@ -35,6 +36,8 @@ export function HttpLoaderFactory(http:HttpClient){
     CategoryPipe,
     IconControlDirective,
     ShoppingCartComponent,
+    ZoomDirective,
+   
     
   ],
   imports: [
