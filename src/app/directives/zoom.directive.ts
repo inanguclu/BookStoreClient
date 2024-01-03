@@ -1,10 +1,20 @@
-import { Directive } from '@angular/core';
+import { Directive, ElementRef, HostListener } from '@angular/core';
 
 @Directive({
-  selector: '[appZoom]'
+  selector: '[zoom]'
 })
 export class ZoomDirective {
 
-  constructor() { }
+  constructor(
+    private el:ElementRef<HTMLDivElement>
+  ) { }
+
+  @HostListener("mouseenter") mouseenter(){
+
+  }
+
+  @HostListener("mouseleave") mouseleave(){
+    
+  }
 
 }
