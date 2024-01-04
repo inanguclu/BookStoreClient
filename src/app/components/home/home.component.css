@@ -44,7 +44,6 @@
     padding: 20px 0px;
 }
 .loading{
-    background-image : linear-gradient(to bottom right,#ccc,#ccc);
-    animation:changeColor .5s infinite;
+    background-color: #f1f1f1;
 }
 
