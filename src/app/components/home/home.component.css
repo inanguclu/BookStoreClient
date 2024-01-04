@@ -46,4 +46,20 @@
 .loading{
     background-color: #f1f1f1;
 }
+.zoom-entering, .zoom-leaving, .zoom{
+    transition: all 0.3s ease-in-out;
+}
+.zoom{
+    transform: scale(1.3);
+    z-index: 1;
+}
+.card-body p.card-text {
+    display:none;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+.card-body.show-summary p.card-text{
+    display: block;
+    opacity: 1;
+}
 
