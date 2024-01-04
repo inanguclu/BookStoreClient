@@ -8,6 +8,8 @@
 </div>
 <!--Loading-->
 <div class="row mt-4" *ngIf="isLoading">
+
+    <!--kategoriler-->
     <div class="col-lg-3 col-md-4 col-sm-6 col-12">
         <div class="card">
             <div class="card-header">
@@ -28,6 +30,8 @@
             </div>
         </div>
     </div>
+
+    <!--kitaplar-->
     <div class="col-lg-9 col-md-8 col-sm-6 col-12">
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">
@@ -37,7 +41,7 @@
                 class="form-control" placeholder="{{'search'|translate}}">
         </div>
         <div class="row">
-            <div class="col-xl-4 col-md-6 col-12 mb-2" *ngFor="let l of loaderDatas">
+            <div class="col-xl-4 col-md-6 col-12 mb-2" zoom *ngFor="let l of loaderDatas">
                 <div class="card text-center">
                     <div class="card-body">
                         <div class="card-img-top mt-2 loading placeholder"></div>
