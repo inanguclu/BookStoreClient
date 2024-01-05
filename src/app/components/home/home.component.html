@@ -41,7 +41,7 @@
                 class="form-control" placeholder="{{'search'|translate}}">
         </div>
         <div class="row">
-            <div class="col-xl-4 col-md-6 col-12 mb-2"  *ngFor="let l of loaderDatas">
+            <div class="col-xl-4 col-md-6 col-12 mb-2" *ngFor="let l of loaderDatas">
                 <div class="card text-center">
                     <div class="card-body">
                         <div class="card-img-top mt-2 loading placeholder"></div>
@@ -98,26 +98,32 @@
             <input [(ngModel)]="request.search" (keydown.enter)="getAll()" (search)="getAll()" type="search"
                 class="form-control" placeholder="{{'search'|translate}}">
         </div>
-    
+
         <div class="row">
             <div class="col-xl-4 col-md-6 col-12 mb-2" zoom *ngFor="let b of books">
                 <div class="card text-center">
-                    <div class="card-body">
-                        <img [src]="b.coverImageUrl" class="card-img-top mt-2"/>
-                        <div class="card-header">
-                            <h5 class="card-title">{{b.title}} </h5>
-                            <p>{{b.author}}</p>
+                    <div class="d-flex">
+                        <div>
+                            <div class="card-body">
+                                <img [src]="b.coverImageUrl" class="card-img-top mt-2" />
+                                <div class="card-header">
+                                    <h5 class="card-title">{{b.title}} </h5>
+                                    <p>{{b.author}}</p>
+                                </div>
+                            </div>
                         </div>
-                    <div class="card-body detail">
-                        <p class="card-text">{{b.summary}}</p>
-                        <button iconControl
-                            class="btn btn-outline-secondary d-flex justify-content-between w-100 align-items-center"
-                            (click)="addShoppingCart(b)">
-                            <span>{{b.price.value | currency: '':'':'1.2-2'}} {{b.price.currency}}</span>
-                            <i class="fa-solid fa-cart-shopping"></i>
-                        </button>
+                        <div>
+                            <div class="card-body detail">
+                                <p class="card-text">{{b.summary}}</p>
+                                <button iconControl
+                                    class="btn btn-outline-secondary d-flex justify-content-between w-100 align-items-center"
+                                    (click)="addShoppingCart(b)">
+                                    <span>{{b.price.value | currency: '':'':'1.2-2'}} {{b.price.currency}}</span>
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                </div>
                 </div>
             </div>
         </div>
