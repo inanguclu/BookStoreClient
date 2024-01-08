@@ -21,6 +21,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { ZoomDirective } from './directives/zoom.directive';
 import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 
 
@@ -39,6 +40,7 @@ export function HttpLoaderFactory(http:HttpClient){
     ShoppingCartComponent,
     ZoomDirective,
     LoginComponent,
+    RegisterComponent,
    
     
   ],
