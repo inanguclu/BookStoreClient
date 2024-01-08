@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,9 @@ import { NgForm } from '@angular/forms';
 export class LoginComponent {
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private router:Router
+
   ) {
 
   }
@@ -20,8 +23,9 @@ export class LoginComponent {
   signIn(form: NgForm) {
     if (form.valid) {
       this.http.post("https://localhost:7127/api/Auth/Login", { usernameOrEmail: form.controls["usernameOrEmail"].value, password: form.controls["password"].value })
-      .subscribe(res=>{
-        console.log(res);
+      .subscribe((res:any)=>{
+        localStorage.setItem("token",JSON.stringify(res.token));
+        this.router.navigateByUrl("/");
         
       })
     }
