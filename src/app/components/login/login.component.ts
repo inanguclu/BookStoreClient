@@ -19,7 +19,7 @@ export class LoginComponent {
 
   signIn(form: NgForm) {
     if (form.valid) {
-      this.http.post("", { usernameOrEmail: form.controls["usernameOrEmail"].value, password: form.controls["password"].value })
+      this.http.post("https://localhost:7127/api/Auth/Login", { usernameOrEmail: form.controls["usernameOrEmail"].value, password: form.controls["password"].value })
       .subscribe(res=>{
         console.log(res);
         
