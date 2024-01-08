@@ -20,6 +20,7 @@ import { HomeComponent } from './components/home/home.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { ZoomDirective } from './directives/zoom.directive';
+import { LoginComponent } from './components/login/login.component';
 
 
 
@@ -37,6 +38,7 @@ export function HttpLoaderFactory(http:HttpClient){
     IconControlDirective,
     ShoppingCartComponent,
     ZoomDirective,
+    LoginComponent,
    
     
   ],
