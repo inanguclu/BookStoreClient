@@ -29,4 +29,8 @@ export class NavbarComponent {
     this.translate.use(this.language);
     location.reload();
   }
+
+  logout(){
+    
+  }
 }
