@@ -22,7 +22,11 @@ export class LoginComponent {
 
   signIn(form: NgForm) {
     if (form.valid) {
-      this.http.post("https://localhost:7127/api/Auth/Login", { usernameOrEmail: form.controls["usernameOrEmail"].value, password: form.controls["password"].value })
+      this.http.post("https://localhost:7127/api/Auth/Login",
+       { 
+        usernameOrEmail: form.controls["usernameOrEmail"].value, 
+        password: form.controls["password"].value 
+      })
       .subscribe((res:any)=>{
         localStorage.setItem("token",JSON.stringify(res.token));
         this.router.navigateByUrl("/");
