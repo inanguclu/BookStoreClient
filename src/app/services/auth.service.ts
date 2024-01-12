@@ -9,7 +9,15 @@ export class AuthService {
 
   constructor() { }
 
-  isAuthentication(){}
+  isAuthentication(){
+    const tokenString = localStorage.getItem("token");
+    if(tokenString){
+      const tokenJson= JSON.parse(tokenString)
+      return true;
+    }
+
+    return false;
+  }
 
 
 }
