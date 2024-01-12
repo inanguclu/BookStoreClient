@@ -31,7 +31,8 @@ export class HomeComponent {
 
   ) {
     if(localStorage.getItem("request")){
-      const request= localStorage.getItem("request");
+      const requestString:any= localStorage.getItem("request");
+      const requestObj= JSON.parse(requestString);
     }
     this.getCategories();
   }
