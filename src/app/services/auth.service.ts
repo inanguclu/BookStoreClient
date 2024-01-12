@@ -5,5 +5,11 @@ import { Injectable } from '@angular/core';
 })
 export class AuthService {
 
+  token: string = "";
+
   constructor() { }
+
+  isAuthentication(){}
+
+
 }
