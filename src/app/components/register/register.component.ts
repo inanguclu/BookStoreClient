@@ -19,7 +19,7 @@ export class RegisterComponent {
   signUp(form:NgForm){
 
     if(form.valid){
-      this.http.post("",{
+      this.http.post("https://localhost:7127/api/Auth/Register",{
         name:form.controls["name"].value,
         lastname:form.controls["lastname"].value,
         username:form.controls["username"].value,
