@@ -13,6 +13,7 @@ export class AuthService {
     const tokenString = localStorage.getItem("token");
     if(tokenString){
       const tokenJson= JSON.parse(tokenString)
+      this.token= tokenJson;
       return true;
     }
 
