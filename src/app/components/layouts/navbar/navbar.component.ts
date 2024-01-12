@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { AuthService } from 'src/app/services/auth.service';
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 
 @Component({
@@ -13,7 +15,9 @@ export class NavbarComponent {
 
   constructor(
     private translate: TranslateService,
-    public shopping: ShoppingCartService
+    public shopping: ShoppingCartService,
+    public auth: AuthService,
+    public router:Router
   ) {
     if (localStorage.getItem("language")) {
       this.language = (localStorage.getItem("language") as string);
@@ -25,12 +29,15 @@ export class NavbarComponent {
 
   switchLanguage(event: any) {
     localStorage.setItem("language", event.target.value)
-    this.language=event.target.value;
+    this.language = event.target.value;
     this.translate.use(this.language);
     location.reload();
   }
 
-  logout(){
-    
+  logout() {
+    localStorage.removeItem("token");
+    this.router.navigateByUrl("/login");
+
+
   }
 }

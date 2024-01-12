@@ -22,10 +22,10 @@
           <span class="visually-hidden">unread messages</span>
         </span>
       </button>
-      <button class="btn btn-outline-light ms-2" routerLink="/login">
+      <button *ngIf="!auth.isAuthentication()" class="btn btn-outline-light ms-2" routerLink="/login">
         <i class="fa-solid fa-user-lock"></i>
       </button>
-      <button class="btn btn-outline-danger ms-2" (click)="logout()">
+      <button *ngIf="auth.isAuthentication()" class="btn btn-outline-danger ms-2" (click)="logout()">
         <i class="fa-solid fa-power-off"></i>
       </button>
     </div>
