@@ -30,6 +30,9 @@ export class HomeComponent {
     private translate: TranslateService
 
   ) {
+    if(localStorage.getItem("request")){
+      const request= localStorage.getItem("request");
+    }
     this.getCategories();
   }
 
