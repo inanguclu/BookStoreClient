@@ -25,7 +25,8 @@ export class RegisterComponent {
         username:form.controls["username"].value,
         email:form.controls["email"].value,
         password:form.controls["password"].value,
-      }).subscribe(res=>{
+      }).subscribe((res:any)=>{
+        this.swal.callToast(res.message,"success");
         this.router.navigateByUrl("/login");
       })
     }
