@@ -28,7 +28,7 @@ export class LoginComponent {
         password: form.controls["password"].value 
       })
       .subscribe((res:any)=>{
-        localStorage.setItem("token",JSON.stringify(res.token));
+        localStorage.setItem("response",JSON.stringify(res));
         this.router.navigateByUrl("/");
         
       })
