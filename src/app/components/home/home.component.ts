@@ -62,6 +62,7 @@ export class HomeComponent {
       .subscribe(res => {
         this.books=res;
         this.isLoading=false;
+        localStorage.setItem("request",JSON.stringify(this.request));
         
         
       })
