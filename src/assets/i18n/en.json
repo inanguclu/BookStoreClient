@@ -15,11 +15,22 @@
     },
     "signIn":{
         "title":"Sign In",
-        "fillYourInformation":"Please fill your infırmnaiton to sign in",
+        "fillYourInformation":"Please fill your information to sign in",
         "usernameOrEmail":"User name or Email",
         "password":"Password",
         "signInBtn":"Sign In",
-        "gotoRegisterBtn":"If you don't have an acccount. You can register."
+        "gotoRegisterBtn":"If you don't have an acccount. You can register for free."
+    },
+    "signUp":{
+        "title":"Sign Up",
+        "fillYourInformation":"If you want to sign up. Please fill your information",
+        "name":"Name",
+        "lastname":"Lastname",
+        "username":"User Name",
+        "email":"Email",
+        "password":"Password",
+        "signUpBtn":"Sign Up",
+        "gotoLoginBtn":"If you have an acccount. You can login here."
     }
    
 }

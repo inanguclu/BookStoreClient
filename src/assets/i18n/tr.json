@@ -59,5 +59,16 @@
         "password":"Şifre",
         "signInBtn":"Giriş Yap",
         "gotoRegisterBtn":"Eğer bir hesabınız yoksa ücretsiz kaydolabilirsiniz"
+    },
+    "signUp":{
+        "title":"Kayıt Formu",
+        "fillYourInformation":"Kayıt olmak istiyorsanız bilgilerinizi doldurun",
+        "name":"Ad",
+        "lastname":"Soyad",
+        "username":"Kullanıcı Adı",
+        "email":"Email",
+        "password":"Şifre",
+        "signUpBtn":"Kayıt ol",
+        "gotoLoginBtn":"Eğer hesabınız varsa burdan giriş yapabilirsiniz."
     }
 }
