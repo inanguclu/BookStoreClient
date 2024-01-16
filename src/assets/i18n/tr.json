@@ -53,6 +53,7 @@
         }
     },
     "signIn":{
-        "title":"Sign In"
+        "title":"Sign In",
+        "fillYourInformation":"Please fill your infırmnaiton to sign in"
     }
 }
