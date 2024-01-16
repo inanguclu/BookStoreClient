@@ -53,7 +53,11 @@
         }
     },
     "signIn":{
-        "title":"Sign In",
-        "fillYourInformation":"Please fill your infırmnaiton to sign in"
+        "title":"Giriş Yap",
+        "fillYourInformation":"Giriş yapmak için bilgilerinizi doldurun",
+        "usernameOrEmail":"Kullanıcı adı yada email",
+        "password":"Şifre",
+        "signInBtn":"Giriş Yap",
+        "gotoRegisterBtn":"Eğer bir hesabınız yoksa ücretsiz kaydolabilirsiniz"
     }
 }

@@ -12,6 +12,14 @@
          "cancelBtn":"Cancel",
          "confirmBtn":"Remove"
 
+    },
+    "signIn":{
+        "title":"Sign In",
+        "fillYourInformation":"Please fill your infırmnaiton to sign in",
+        "usernameOrEmail":"User name or Email",
+        "password":"Password",
+        "signInBtn":"Sign In",
+        "gotoRegisterBtn":"If you don't have an acccount. You can register."
     }
    
 }
