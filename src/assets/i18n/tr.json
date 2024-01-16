@@ -51,5 +51,8 @@
             "expireMonthAndYear":"Son Kul. Tarihi",
             "cvc":"CVC"
         }
+    },
+    "signIn":{
+        "title":"Sign In"
     }
 }
