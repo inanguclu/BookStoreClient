@@ -15,6 +15,44 @@
          "confirmBtn":"Remove"
 
     },
+    "payment": {
+        "title": "Payment Page",
+        "pay":"Pay",
+        "completePaymentBtn":"Complate Payment",
+        "buyer": {
+            "title": "Buyer Information",
+            "name": "Buyer Name",
+            "surname": "Buyer Lastname",
+            "identityNumber": "Identity Number",
+            "email": "Email",
+            "gsmNumber": "Phone Number"
+        },
+        "address":"Address Information",
+        "isSameAddress":"Shipping and billing address is the same",
+        "shippingAddress":{
+            "title":"Shipping Address",
+            "country":"Country",
+            "city":"City",
+            "zipCode":"Zip Code",
+            "contactName":"Contact Name",
+            "description":"Full Address"
+        },
+        "billingAddress":{
+            "title":"Billing Address",
+            "country":"Country",
+            "city":"City",
+            "zipCode":"Zip Code",
+            "contactName":"Contact Name",
+            "description":"Full Address"
+        },
+        "creditCart":{
+            "title":"Credit Cart Information",
+            "cardHolderName":"Cart Holder Name",
+            "cardNumber":"Cart Number",
+            "expireMonthAndYear":"Expire Month and Year",
+            "cvc":"CVC"
+        }
+    },
     "signIn":{
         "title":"Sign In",
         "fillYourInformation":"Please fill your information to sign in",
