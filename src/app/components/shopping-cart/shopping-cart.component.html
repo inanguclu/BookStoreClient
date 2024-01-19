@@ -41,7 +41,7 @@
 
 
     <div class="col-lg-3 col-12">
-        <div class="card" *ngFor="let p of shopping.prices">
+        <div class="card mt-1" *ngFor="let p of shopping.prices">
             <div class="form-group">
                 <h1 class="alert alert-danger text-center">
                     <span *ngIf="language=='tr'">{{p.value|trCurrency}} {{p.currency}}</span>
@@ -51,6 +51,7 @@
 
             <div class="form-group">
                 <button (click)="setSelectedPaymentCurrency(p.currency)" data-bs-toggle="modal" data-bs-target="#paymentModal" class="btn btn-danger w-100">
+                    <i class="fa-solid fa-credit-cart"></i>
                    {{'payment.pay'|translate}}
                 </button>
             </div>
