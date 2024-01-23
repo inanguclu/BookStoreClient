@@ -7,6 +7,9 @@
     "shoppingCartPage":"My Shopping Cart",
     "myprofile":"My Profile",
     "logout":"Logout",
+    "bookName":"Book Name",
+    "author":"Author",
+    "summary":"Summary",
     "noBooksInShoppingCart":"No book in shopping cart !",
     "Bilim":"Science",
     "remove":{
