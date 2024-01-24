@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SetShoppingCartsModel } from 'src/app/models/set-shopping-carts.model';
+import { AuthService } from 'src/app/services/auth.service';
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 
 @Component({
@@ -15,6 +16,7 @@ export class LoginComponent {
   constructor(
     private http: HttpClient,
     private router:Router,
+    private auth:AuthService,
     private shoppingCart:ShoppingCartService
 
   ) {
@@ -32,19 +34,23 @@ export class LoginComponent {
       })
       .subscribe((res:any)=>{
         const request:SetShoppingCartsModel[]=[];
+        if(this.shoppingCart.shoppingCarts.length>0){
+          for(let s of this.shoppingCart.shoppingCarts){
+            const cart=new SetShoppingCartsModel();
+            cart.bookId=s.id;
+            cart.userId=this.auth.userId;
+            cart.price=s.price;
+            cart.quantity=1;
+            request.push(cart);
+          }
+          this.http.post("",request)
+          .subscribe(res=>{
+  
+            localStorage.removeItem("shoppingCarts")
+          });
+        }
 
-        for(let s of this.shoppingCart.shoppingCarts){
-          request.push(new SetShoppingCartsModel(){
-            bookId:s.id,
-            userId :0,
-            currency:s.price.currency,
-            price:s.price.value,
-            quantity:1
-          })
-        };
-
-
-        this.http.post("",)
+        
         localStorage.setItem("response",JSON.stringify(res));
         this.router.navigateByUrl("/");
         
