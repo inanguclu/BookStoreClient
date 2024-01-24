@@ -34,18 +34,19 @@ export class LoginComponent {
       })
       .subscribe((res:any)=>{
         const request:SetShoppingCartsModel[]=[];
+
         if(this.shoppingCart.shoppingCarts.length>0){
+
           for(let s of this.shoppingCart.shoppingCarts){
             const cart=new SetShoppingCartsModel();
             cart.bookId=s.id;
-            cart.userId=this.auth.userId;
+            cart.userId=s.id;
             cart.price=s.price;
             cart.quantity=1;
             request.push(cart);
           }
           this.http.post("",request)
           .subscribe(res=>{
-  
             localStorage.removeItem("shoppingCarts")
           });
         }
