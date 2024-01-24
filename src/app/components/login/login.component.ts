@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { SetShoppingCartsModel } from 'src/app/models/set-shopping-carts.model';
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 
 @Component({
@@ -30,6 +31,19 @@ export class LoginComponent {
         password: form.controls["password"].value 
       })
       .subscribe((res:any)=>{
+        const request:SetShoppingCartsModel[]=[];
+
+        for(let s of this.shoppingCart.shoppingCarts){
+          request.push(new SetShoppingCartsModel(){
+            bookId:s.id,
+            userId :0,
+            currency:s.price.currency,
+            price:s.price.value,
+            quantity:1
+          })
+        };
+
+
         this.http.post("",)
         localStorage.setItem("response",JSON.stringify(res));
         this.router.navigateByUrl("/");
