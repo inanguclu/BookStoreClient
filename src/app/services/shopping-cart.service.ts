@@ -5,6 +5,7 @@ import { forkJoin } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { PaymentModel } from '../models/payment.model';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -21,10 +22,11 @@ export class ShoppingCartService {
     private swal: SwalService,
     private translate: TranslateService,
     private http: HttpClient,
+    private auth: AuthService,
     private spinner: NgxSpinnerService
   ) {
     this.checkLocalStoreForShoppingCarts();
-    
+
   }
 
   checkLocalStoreForShoppingCarts() {
@@ -34,6 +36,16 @@ export class ShoppingCartService {
         this.shoppingCarts = JSON.parse(carts)
       }
     }
+
+    if (localStorage.getItem("response")) {
+      this.http.post("", { userId: this.auth.userId })
+        .subscribe(res => {
+          this.shoppingCarts = [...this.shoppingCarts, res]
+        })
+    }
+
+
+
 
     this.calcTotal();
 

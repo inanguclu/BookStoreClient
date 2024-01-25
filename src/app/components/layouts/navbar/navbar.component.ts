@@ -35,6 +35,7 @@ export class NavbarComponent {
   }
 
   logout() {
+    this.shopping.checkLocalStoreForShoppingCarts();
     localStorage.removeItem("response");
     this.router.navigateByUrl("/login");
 

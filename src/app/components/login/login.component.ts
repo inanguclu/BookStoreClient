@@ -48,6 +48,7 @@ export class LoginComponent {
             this.http.post("https://localhost:7127/api/ShoppingCarts/SetShoppingCartsFromLocalStorage", request)
               .subscribe(res => {
                 localStorage.removeItem("shoppingCarts")
+                this.shoppingCart.checkLocalStoreForShoppingCarts();
               });
           }
 
