@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class AuthService {
 
   token: string = "";
-  userId:Number=0;
+  userId:number=0;
   userName:string="";
   
 

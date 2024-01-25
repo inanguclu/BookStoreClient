@@ -15,9 +15,9 @@ export class LoginComponent {
 
   constructor(
     private http: HttpClient,
-    private router:Router,
-    private auth:AuthService,
-    private shoppingCart:ShoppingCartService
+    private router: Router,
+    private auth: AuthService,
+    private shoppingCart: ShoppingCartService
 
   ) {
 
@@ -28,34 +28,34 @@ export class LoginComponent {
   signIn(form: NgForm) {
     if (form.valid) {
       this.http.post("https://localhost:7127/api/Auth/Login",
-       { 
-        usernameOrEmail: form.controls["usernameOrEmail"].value, 
-        password: form.controls["password"].value 
-      })
-      .subscribe((res:any)=>{
-        const request:SetShoppingCartsModel[]=[];
+        {
+          usernameOrEmail: form.controls["usernameOrEmail"].value,
+          password: form.controls["password"].value
+        })
+        .subscribe((res: any) => {
+          const request: SetShoppingCartsModel[] = [];
 
-        if(this.shoppingCart.shoppingCarts.length>0){
+          if (this.shoppingCart.shoppingCarts.length > 0) {
 
-          for(let s of this.shoppingCart.shoppingCarts){
-            const cart=new SetShoppingCartsModel();
-            cart.bookId=s.id;
-            cart.userId=s.id;
-            cart.price=s.price;
-            cart.quantity=1;
-            request.push(cart);
+            for (let s of this.shoppingCart.shoppingCarts) {
+              const cart = new SetShoppingCartsModel();
+              cart.bookId = s.id;
+              cart.userId = this.auth.userId;
+              cart.price = s.price;
+              cart.quantity = 1;
+              request.push(cart);
+            }
+            this.http.post("", request)
+              .subscribe(res => {
+                localStorage.removeItem("shoppingCarts")
+              });
           }
-          this.http.post("",request)
-          .subscribe(res=>{
-            localStorage.removeItem("shoppingCarts")
-          });
-        }
 
-        
-        localStorage.setItem("response",JSON.stringify(res));
-        this.router.navigateByUrl("/");
-        
-      })
+
+          localStorage.setItem("response", JSON.stringify(res));
+          this.router.navigateByUrl("/");
+
+        })
     }
 
   }
