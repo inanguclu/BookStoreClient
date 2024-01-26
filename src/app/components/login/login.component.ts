@@ -33,6 +33,8 @@ export class LoginComponent {
           password: form.controls["password"].value
         })
         .subscribe((res: any) => {
+          localStorage.setItem("response", JSON.stringify(res));
+          this.auth.isAuthentication();
           const request: SetShoppingCartsModel[] = [];
 
           if (this.shoppingCart.shoppingCarts.length > 0) {
@@ -53,7 +55,7 @@ export class LoginComponent {
           }
 
 
-          localStorage.setItem("response", JSON.stringify(res));
+          
           this.router.navigateByUrl("/");
 
         })

@@ -30,19 +30,22 @@ export class ShoppingCartService {
   }
 
   checkLocalStoreForShoppingCarts() {
+    const shoppingCartsString=localStorage.getItem("shoppingCarts");
     if (localStorage.getItem("shoppingCarts")) {
       const carts: string | null = (localStorage.getItem("shoppingCarts"));
       if (carts !== null) {
         this.shoppingCarts = JSON.parse(carts)
       }
+    }else{
+      this.shoppingCarts=[];
     }
 
-    if (localStorage.getItem("response")) {
-      this.http.post("", { userId: this.auth.userId })
-        .subscribe(res => {
-          this.shoppingCarts = [...this.shoppingCarts, res]
-        })
-    }
+    // if (localStorage.getItem("response")) {
+    //   this.http.post("", { userId: this.auth.userId })
+    //     .subscribe(res => {
+    //       this.shoppingCarts = [...this.shoppingCarts, res]
+    //     })
+    // }
 
 
 

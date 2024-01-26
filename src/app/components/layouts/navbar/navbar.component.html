@@ -16,9 +16,9 @@
         <option value="tr">Türkçe</option>
       </select>
       <button routerLink="/shopping-cart" class="btn btn-outline-light position-relative">
-        <i class="fa-solid fa-cart-shopping" [ngClass]="shopping.count > 0 ?'fa-bounce':''"></i>
-        <span *ngIf="shopping.count>0" class="position-absolute translate-middle badge rounded-pill bg-danger" style="top:40px; right:-27px;">
-          {{shopping.count}}
+        <i class="fa-solid fa-cart-shopping" [ngClass]="shopping.shoppingCarts.length > 0 ?'fa-bounce':''"></i>
+        <span *ngIf="shopping.shoppingCarts.length" class="position-absolute translate-middle badge rounded-pill bg-danger" style="top:40px; right:-27px;">
+          {{shopping.shoppingCarts.length}}
           <span class="visually-hidden">unread messages</span>
         </span>
       </button>
