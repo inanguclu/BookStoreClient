@@ -40,12 +40,12 @@ export class ShoppingCartService {
       this.shoppingCarts=[];
     }
 
-    // if (localStorage.getItem("response")) {
-    //   this.http.post("", { userId: this.auth.userId })
-    //     .subscribe(res => {
-    //       this.shoppingCarts = [...this.shoppingCarts, res]
-    //     })
-    // }
+    if (localStorage.getItem("response")) {
+      this.http.get(""+this.auth.userId,)
+        .subscribe(res => {
+          this.shoppingCarts = [...this.shoppingCarts, res]
+        })
+    }
 
 
 
