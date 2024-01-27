@@ -6,6 +6,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { PaymentModel } from '../models/payment.model';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { AuthService } from './auth.service';
+import { SetShoppingCartsModel } from '../models/set-shopping-carts.model';
 
 @Injectable({
   providedIn: 'root'
@@ -41,9 +42,9 @@ export class ShoppingCartService {
     }
 
     if (localStorage.getItem("response")) {
-      this.http.get(""+this.auth.userId,)
+      this.http.get<SetShoppingCartsModel[]>("https://localhost:7127/api/ShoppingCarts/GetAll/"+this.auth.userId,)
         .subscribe(res => {
-          this.shoppingCarts = [...this.shoppingCarts, res]
+          this.shoppingCarts = res;
         })
     }
 
