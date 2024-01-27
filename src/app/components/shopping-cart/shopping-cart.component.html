@@ -9,9 +9,9 @@
     </div>
 </div>
 
-<h1 *ngIf="shopping.count===0" class="alert alert-danger text-center ">{{'noBooksInShoppingCart'|translate}}</h1>
+<h1 *ngIf="shopping.shoppingCarts.length" class="alert alert-danger text-center ">{{'noBooksInShoppingCart'|translate}}</h1>
 
-<div class="row mt-4" *ngIf="shopping.count > 0">
+<div class="row mt-4" *ngIf="shopping.shoppingCarts.length > 0">
     <div class="col-lg-9 col-12">
         <div class="card mt-1 position-relative" *ngFor="let s of shopping.shoppingCarts let i = index">
             <div class="row ">

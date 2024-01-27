@@ -45,11 +45,9 @@ export class ShoppingCartService {
       this.http.get<SetShoppingCartsModel[]>("https://localhost:7127/api/ShoppingCarts/GetAll/"+this.auth.userId,)
         .subscribe(res => {
           this.shoppingCarts = res;
+          this.calcTotal();
         })
     }
-
-
-
 
     this.calcTotal();
 
