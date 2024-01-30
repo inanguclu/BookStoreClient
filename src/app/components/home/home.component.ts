@@ -30,60 +30,67 @@ export class HomeComponent {
     private translate: TranslateService
 
   ) {
-    if(localStorage.getItem("request")){
-      const requestString:any= localStorage.getItem("request");
-      const requestObj= JSON.parse(requestString);
-      this.request=requestObj;
+    if (localStorage.getItem("request")) {
+      const requestString: any = localStorage.getItem("request");
+      const requestObj = JSON.parse(requestString);
+      this.request = requestObj;
     }
     this.getCategories();
   }
 
   addShoppingCart(book: BookModel) {
-    this.shopping.shoppingCarts.push(book)
-    localStorage.setItem("shoppingCarts", JSON.stringify(this.shopping.shoppingCarts))
-    this.shopping.count++;
-    this.translate.get("addBookInShoppingCartIsSuccessful").subscribe(res => {
-      this.swal.callToast(res);
-    })
+    if (localStorage.getItem("response")) {
+      this.http.post("", book).subscribe(res => {
+        this.shopping.checkLocalStoreForShoppingCarts();
+        this.translate.get("addBookInShoppingCartIsSuccessful").subscribe(res => {
+          this.swal.callToast(res);
+        });
+      });
+      } else {
+        this.shopping.shoppingCarts.push(book);
+      localStorage.setItem("shoppingCarts", JSON.stringify(this.shopping.shoppingCarts));
+      this.translate.get("addBookInShoppingCartIsSuccessful").subscribe(res => {
+          this.swal.callToast(res);
+
+        })
+        };
+    }
+
+    feedData() {
+      this.request.pageSize += 10;
+      this.newData = [];
+      this.getAll();
+    }
+    changeCategory(categoryId: number | null = null) {
+      this.request.categoryId = categoryId
+      this.request.pageSize = 0;
+      this.feedData();
+
+
+    }
+
+    getAll() {
+      this.isLoading = true;
+      this.http
+        .post<BookModel[]>(`https://localhost:7127/api/Books/GetAll/`, this.request)
+        .subscribe(res => {
+          this.books = res;
+          this.isLoading = false;
+          localStorage.setItem("request", JSON.stringify(this.request));
+
+
+        })
+    }
+
+    getCategories() {
+      this.isLoading = true;
+      this.http.get("https://localhost:7127/api/Categories/GetAll")
+        .subscribe(res =>
+          this.categories = res);
+
+      this.getAll();
+      this.isLoading = false;
+
+    }
+
   }
-
-  feedData() {
-    this.request.pageSize += 10;
-    this.newData = [];
-    this.getAll();
-  }
-  changeCategory(categoryId: number | null = null) {
-    this.request.categoryId = categoryId
-    this.request.pageSize = 0;
-    this.feedData();
-
-
-  }
-
-  getAll() {
-    this.isLoading = true;
-    this.http
-      .post<BookModel[]>(`https://localhost:7127/api/Books/GetAll/`, this.request)
-      .subscribe(res => {
-        this.books=res;
-        this.isLoading=false;
-        localStorage.setItem("request",JSON.stringify(this.request));
-        
-        
-      })
-  }
-
-  getCategories() {
-    this.isLoading = true;
-    this.http.get("https://localhost:7127/api/Categories/GetAll")
-      .subscribe(res =>
-        this.categories = res);
-
-    this.getAll();
-    this.isLoading = false;
-
-  }
-
-
-
-}
