@@ -31,18 +31,18 @@ export class ShoppingCartService {
   }
 
   checkLocalStoreForShoppingCarts() {
-    const shoppingCartsString=localStorage.getItem("shoppingCarts");
+    const shoppingCartsString = localStorage.getItem("shoppingCarts");
     if (localStorage.getItem("shoppingCarts")) {
       const carts: string | null = (localStorage.getItem("shoppingCarts"));
       if (carts !== null) {
         this.shoppingCarts = JSON.parse(carts)
       }
-    }else{
-      this.shoppingCarts=[];
+    } else {
+      this.shoppingCarts = [];
     }
 
     if (localStorage.getItem("response")) {
-      this.http.get<SetShoppingCartsModel[]>("https://localhost:7127/api/ShoppingCarts/GetAll/"+this.auth.userId,)
+      this.http.get<SetShoppingCartsModel[]>("https://localhost:7127/api/ShoppingCarts/GetAll/" + this.auth.userId,)
         .subscribe(res => {
           this.shoppingCarts = res;
           this.calcTotal();
@@ -97,13 +97,16 @@ export class ShoppingCartService {
       confirmBtn: this.translate.get("remove.confirmBtn")
     }).subscribe(res => {
       this.swal.callSwall(res.doYouWantToDeleted, res.cancelBtn, res.confirmBtn, () => {
-        if(localStorage.getItem("response")){
+        if (localStorage.getItem("response")) {
+          this.http.get("https://localhost:7127/api/ShoppingCarts/RemoveById/" + this.shoppingCarts[index]?.id).subscribe(res => {
+            this.checkLocalStoreForShoppingCarts();
+          })
 
-        }else{
+        } else {
           this.shoppingCarts.splice(index, 1);
-        localStorage.setItem("shoppingCarts", JSON.stringify(this.shoppingCarts));
-        this.count = this.shoppingCarts.length;
-        this.calcTotal();
+          localStorage.setItem("shoppingCarts", JSON.stringify(this.shoppingCarts));
+          this.count = this.shoppingCarts.length;
+          this.calcTotal();
         }
       });
     })
