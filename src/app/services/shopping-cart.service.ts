@@ -98,7 +98,7 @@ export class ShoppingCartService {
     }).subscribe(res => {
       this.swal.callSwall(res.doYouWantToDeleted, res.cancelBtn, res.confirmBtn, () => {
         if (localStorage.getItem("response")) {
-          this.http.get("https://localhost:7127/api/ShoppingCarts/RemoveById/" + this.shoppingCarts[index]?.id).subscribe(res => {
+          this.http.get("https://localhost:7127/api/ShoppingCarts/RemoveById/" + this.shoppingCarts[index]?.shoppingCartId).subscribe(res => {
             this.checkLocalStoreForShoppingCarts();
           })
 
