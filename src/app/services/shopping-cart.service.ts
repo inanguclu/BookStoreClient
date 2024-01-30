@@ -97,11 +97,14 @@ export class ShoppingCartService {
       confirmBtn: this.translate.get("remove.confirmBtn")
     }).subscribe(res => {
       this.swal.callSwall(res.doYouWantToDeleted, res.cancelBtn, res.confirmBtn, () => {
+        if(localStorage.getItem("response")){
 
-        this.shoppingCarts.splice(index, 1);
+        }else{
+          this.shoppingCarts.splice(index, 1);
         localStorage.setItem("shoppingCarts", JSON.stringify(this.shoppingCarts));
         this.count = this.shoppingCarts.length;
         this.calcTotal();
+        }
       });
     })
 
