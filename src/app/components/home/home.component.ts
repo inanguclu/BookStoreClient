@@ -40,7 +40,7 @@ export class HomeComponent {
 
   addShoppingCart(book: BookModel) {
     if (localStorage.getItem("response")) {
-      this.http.post("", book).subscribe(res => {
+      this.http.post("https://localhost:7127/api/ShoppingCarts/Add", book).subscribe(res => {
         this.shopping.checkLocalStoreForShoppingCarts();
         this.translate.get("addBookInShoppingCartIsSuccessful").subscribe(res => {
           this.swal.callToast(res);
