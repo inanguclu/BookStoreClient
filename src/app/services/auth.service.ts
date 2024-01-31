@@ -6,19 +6,19 @@ import { Injectable } from '@angular/core';
 export class AuthService {
 
   token: string = "";
-  userId:number=0;
-  userName:string="";
-  
+  userId: number  = 0;
+  userName: string = "";
+
 
   constructor() { }
 
-  isAuthentication(){
+  isAuthentication() {
     const responseString = localStorage.getItem("response");
-    if(responseString){
-      const responseJson= JSON.parse(responseString)
-      this.token= responseJson.token;
-      this.userId=responseJson.userId;
-      this.userName=responseJson.userName;
+    if (responseString) {
+      const responseJson = JSON.parse(responseString)
+      this.token = responseJson.token;
+      this.userId = responseJson.userId;
+      this.userName = responseJson.userName;
       return true;
     }
 
