@@ -4,6 +4,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { PaymentModel } from 'src/app/models/payment.model';
 import { Cities, Countries } from 'src/app/constants/address';
 import { SwalService } from 'src/app/services/swal.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -32,8 +33,9 @@ export class ShoppingCartComponent {
   constructor(
     public shopping: ShoppingCartService,
     private translate: TranslateService,
-    private swal:SwalService
-    ) {
+    private swal: SwalService,
+    private auth: AuthService
+  ) {
 
     if (localStorage.getItem("language")) {
       this.language = localStorage.getItem("language") as string;
@@ -64,16 +66,17 @@ export class ShoppingCartComponent {
     this.request.buyer.city = this.request.shippingAddress.city;
     this.request.buyer.country = this.request.shippingAddress.country;
 
+    this.request.userId = this.auth.userId;
     this.shopping.payment(this.request, (res) => {
       const btn = document.getElementById("paymentModalCloseBtn");
       btn?.click();
-      const remainShoppingCarts=this.shopping.shoppingCarts.filter(p=>p.price.currency !== this.selectedCurrencyForPayment);
-      localStorage.setItem("shoppingCarts",JSON.stringify(remainShoppingCarts));
+      const remainShoppingCarts = this.shopping.shoppingCarts.filter(p => p.price.currency !== this.selectedCurrencyForPayment);
+      localStorage.setItem("shoppingCarts", JSON.stringify(remainShoppingCarts));
       this.shopping.checkLocalStoreForShoppingCarts();
-      this.translate.get("paymentIsSuccessful").subscribe(translate=>{
-        this.swal.callToast(translate,"success");
+      this.translate.get("paymentIsSuccessful").subscribe(translate => {
+        this.swal.callToast(translate, "success");
       });
-      
+
 
     })
   }
