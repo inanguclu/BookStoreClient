@@ -5,6 +5,7 @@ import { PaymentModel } from 'src/app/models/payment.model';
 import { Cities, Countries } from 'src/app/constants/address';
 import { SwalService } from 'src/app/services/swal.service';
 import { AuthService } from 'src/app/services/auth.service';
+import { ErrorService } from 'src/app/services/error.service';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -34,7 +35,8 @@ export class ShoppingCartComponent {
     public shopping: ShoppingCartService,
     private translate: TranslateService,
     private swal: SwalService,
-    private auth: AuthService
+    private auth: AuthService,
+    private error:ErrorService
   ) {
 
     if (localStorage.getItem("language")) {

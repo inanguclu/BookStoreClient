@@ -25,7 +25,7 @@ export class ShoppingCartService {
     private translate: TranslateService,
     private http: HttpClient,
     private auth: AuthService,
-    private error:ErrorService,
+    private error: ErrorService,
     private spinner: NgxSpinnerService
   ) {
     this.checkLocalStoreForShoppingCarts();
@@ -45,9 +45,14 @@ export class ShoppingCartService {
 
     if (localStorage.getItem("response")) {
       this.http.get<SetShoppingCartsModel[]>("https://localhost:7127/api/ShoppingCarts/GetAll/" + this.auth.userId,)
-        .subscribe(res => {
-          this.shoppingCarts = res;
-          this.calcTotal();
+        .subscribe({
+          next: (res: any) => {
+            this.shoppingCarts = res;
+            this.calcTotal();
+          },
+          error:(err:HttpErrorResponse)=>{
+            this.error.errorHandler(err);
+          }
         })
     }
 
