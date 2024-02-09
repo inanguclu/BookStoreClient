@@ -7,6 +7,7 @@ import { PaymentModel } from '../models/payment.model';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { AuthService } from './auth.service';
 import { SetShoppingCartsModel } from '../models/set-shopping-carts.model';
+import { ErrorService } from './error.service';
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +25,7 @@ export class ShoppingCartService {
     private translate: TranslateService,
     private http: HttpClient,
     private auth: AuthService,
+    private error:ErrorService,
     private spinner: NgxSpinnerService
   ) {
     this.checkLocalStoreForShoppingCarts();
@@ -128,7 +130,8 @@ export class ShoppingCartService {
           this.spinner.hide();
         },
         error: (err: HttpErrorResponse) => {
-          console.log(err);
+          this.error.errorHandler(err);
+          this.spinner.hide();
         }
       });
   }
