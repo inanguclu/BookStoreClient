@@ -101,10 +101,15 @@ export class HomeComponent {
   getCategories() {
     this.isLoading = true;
     this.http.get("https://localhost:7127/api/Categories/GetAll")
-      .subscribe(res => {
-        this.categories = res
-        this.getAll();
-        this.isLoading = false;
+      .subscribe({
+        next: (res: any) => {
+          this.categories = res
+          this.getAll();
+          this.isLoading = false;
+        },
+        error:(err:HttpErrorResponse)=>{
+          this.error.errorHandler(err);
+        }
       });
   }
 }
