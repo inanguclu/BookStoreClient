@@ -18,12 +18,10 @@ export class ErrorService {
     if(err.status==400){
       this.swal.callToast(err.error.message,"error");
     }else if(err.status==0){
-      let errorMessage= "";
       this.translate.get("apiNotAvailable").subscribe(res=>{
-        errorMessage=res;
-
+        this.swal.callToast(res,"error")
       });
-      this.swal.callToast(errorMessage,"error")
+
     }
   }
 }

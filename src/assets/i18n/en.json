@@ -10,6 +10,8 @@
     "bookName":"Book Name",
     "author":"Author",
     "summary":"Summary",
+    "apiNotAvailable":"Api is bussy right now",
+    "apiNotFound":"Api not found",
     "noBooksInShoppingCart":"No book in shopping cart !",
     "Bilim":"Science",
     "remove":{
