@@ -10,6 +10,7 @@
     "summary":"Özet",
     "apiNotAvailable":"Api şuanda meşgul",
     "apiNotFound":"Api adresi bulunamadı",
+    "errorStatusNotFound":"Bilinmeyen bi hata ile karsılastık lütfen yönetici ile iletişime geçin!",
     "allCategories": "Tüm Kategoriler",
     "paymentIsSuccessful":"Ödeme işlemi başarıyla tamamlandı",
     "addBookInShoppingCartIsSuccessful": "Kitap başarıyla sepete eklendi",

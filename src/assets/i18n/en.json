@@ -12,6 +12,7 @@
     "summary":"Summary",
     "apiNotAvailable":"Api is bussy right now",
     "apiNotFound":"Api not found",
+    "errorStatusNotFound":"We encountered an unknown error. Please contact with admin!",
     "noBooksInShoppingCart":"No book in shopping cart !",
     "Bilim":"Science",
     "remove":{

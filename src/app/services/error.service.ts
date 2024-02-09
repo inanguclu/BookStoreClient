@@ -34,6 +34,11 @@ export class ErrorService {
       case 500:
         this.swal.callToast(err.error, "error")
         break;
+        default:
+          this.translate.get("errorStatusNotFound").subscribe(res=>{
+            this.swal.callToast(res,"error");
+          });
+          break;
 
     }
 
