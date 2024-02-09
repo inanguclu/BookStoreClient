@@ -8,6 +8,8 @@
     "bookName":"Kitap Adı",
     "author":"Yazar",
     "summary":"Özet",
+    "apiNotAvailable":"Api şuanda meşgul",
+    "apiNotFaund":"Api adresi bulunamadı",
     "allCategories": "Tüm Kategoriler",
     "paymentIsSuccessful":"Ödeme işlemi başarıyla tamamlandı",
     "addBookInShoppingCartIsSuccessful": "Kitap başarıyla sepete eklendi",
