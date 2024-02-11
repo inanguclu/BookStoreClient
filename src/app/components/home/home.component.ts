@@ -8,6 +8,16 @@ import { TranslateService } from '@ngx-translate/core';
 import { AddShoppingCartModel } from 'src/app/models/add-shopping-cart.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { ErrorService } from 'src/app/services/error.service';
+import { driver } from "driver.js";
+
+const driverObj = driver({
+  showProgress: true,
+  steps: [
+    { element: '#some-element', popover: { title: 'Title', description: 'Description' } },
+    
+  ]
+});
+
 
 @Component({
   selector: 'app-home',
@@ -41,7 +51,14 @@ export class HomeComponent {
       this.request = requestObj;
     }
     this.getCategories();
+  
   }
+
+
+  showDriverJs(){
+    driverObj.drive();
+  }
+
 
   addShoppingCart(book: BookModel) {
     if (localStorage.getItem("response")) {
@@ -107,7 +124,7 @@ export class HomeComponent {
           this.getAll();
           this.isLoading = false;
         },
-        error:(err:HttpErrorResponse)=>{
+        error: (err: HttpErrorResponse) => {
           this.error.errorHandler(err);
         }
       });
