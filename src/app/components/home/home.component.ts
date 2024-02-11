@@ -13,7 +13,7 @@ import { driver } from "driver.js";
 const driverObj = driver({
   showProgress: true,
   steps: [
-    { element: '#some-element', popover: { title: 'Title', description: 'Description' } },
+    { element: '#categories', popover: { title: 'Categories', description: 'Bu kısımdan Kategorileri seçebilirsiniz' } },
     
   ]
 });
