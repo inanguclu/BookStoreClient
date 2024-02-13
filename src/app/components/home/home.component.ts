@@ -11,6 +11,7 @@ import { ErrorService } from 'src/app/services/error.service';
 import { driver } from "driver.js";
 
 const driverObj = driver({
+  popoverClass:"driverjs-theme",
   showProgress: true,
   steps: [
     {
