@@ -65,6 +65,8 @@ export class NavbarComponent {
     
       ]
     });
+
+    driverObj.drive();
   }
 
   switchLanguage(event: any) {
