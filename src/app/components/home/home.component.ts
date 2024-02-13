@@ -13,9 +13,21 @@ import { driver } from "driver.js";
 const driverObj = driver({
   showProgress: true,
   steps: [
-    { element: '#categories', popover: { title: 'Categories', description: 'Bu kısımdan Kategorileri seçebilirsiniz' } },
-    {element:'#bookSearch',popover:{title:'Book Search',description:'Bu kısımdan kitap arayabilirsiniz'}}
-    
+    {
+      element: '#categories',
+      popover: {
+        title: 'Categories',
+        description: 'Bu kısımdan Kategorileri seçebilirsiniz'
+      }
+    },
+    {
+      element: '#bookSearch',
+      popover: {
+        title: 'Book Search',
+        description: 'Bu kısımdan kitap arayabilirsiniz'
+      }
+    }
+
   ]
 });
 
@@ -52,11 +64,11 @@ export class HomeComponent {
       this.request = requestObj;
     }
     this.getCategories();
-  
+
   }
 
 
-  showDriverJs(){
+  showDriverJs() {
     driverObj.drive();
   }
 
