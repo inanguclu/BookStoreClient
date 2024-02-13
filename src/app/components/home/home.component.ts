@@ -14,6 +14,7 @@ const driverObj = driver({
   showProgress: true,
   steps: [
     { element: '#categories', popover: { title: 'Categories', description: 'Bu kısımdan Kategorileri seçebilirsiniz' } },
+    {element:'#bookSearch',popover:{title:'Book Search',description:'Bu kısımdan kitap arayabilirsiniz'}}
     
   ]
 });
