@@ -27,6 +27,13 @@ const driverObj = driver({
         title: 'Book Search',
         description: 'Bu kısımdan kitap arayabilirsiniz'
       }
+    },
+    {
+      element: '#book0',
+      popover: {
+        title: 'Book',
+        description: 'Bu kısımdan kitap detaylarını görebilirsiniz'
+      }
     }
 
   ]
