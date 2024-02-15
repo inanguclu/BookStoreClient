@@ -62,6 +62,14 @@ export class NavbarComponent {
             description: 'Bu kısımdan kitabı sepete ekleyebilirsiniz'
           }
         }
+        ,
+        {
+          element: '#language',
+          popover: {
+            title: 'Language',
+            description: 'Buradan dili değiştirebilirsiniz'
+          }
+        }
     
       ]
     });

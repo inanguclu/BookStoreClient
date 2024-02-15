@@ -110,7 +110,8 @@
                     </div>
                     <div class="card-body detail">
                         <p class="card-text">{{b.summary}}</p>
-                        <button iconControl id="addShoppingCartBtn{{i}}"
+                        <button iconControl 
+                        id="addShoppingCartBtn{{i}}"
                             class="btn btn-outline-secondary d-flex justify-content-between w-100 align-items-center"
                             (click)="addShoppingCart(b)">
                             <span>{{b.price.value | currency: '':'':'1.2-2'}} {{b.price.currency}}</span>
