@@ -6,23 +6,25 @@ import { Component } from '@angular/core';
   styleUrls: ['./layouts.component.css']
 })
 export class LayoutsComponent {
-isPopupShow:boolean=false;
-processBar:Number=0;
+  isPopupShow: boolean = false;
+  processBar: Number = 0;
 
 
-constructor(){
-  setTimeout(() => {
-    this.changePopupShow();
-    
-  }, 2000);
+  constructor() {
+    setTimeout(() => {
+      this.changePopupShow();
+      setInterval(() => {
+        this.processBar += 8;
+      }, 500)
+    }, 2000);
 
-  setTimeout(() => {
-    this.changePopupShow();
-  }, 8000);
-}
+    setTimeout(() => {
+      this.changePopupShow();
+    }, 8000);
+  }
 
 
-changePopupShow(){
-  this.isPopupShow=!this.isPopupShow;
-}
+  changePopupShow() {
+    this.isPopupShow = !this.isPopupShow;
+  }
 }
