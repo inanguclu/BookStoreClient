@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class LayoutsComponent {
   isPopupShow: boolean = false;
-  processBar: Number = 0;
+  processBar: number = 0;
 
 
   constructor() {
