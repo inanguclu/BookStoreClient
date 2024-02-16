@@ -3,9 +3,12 @@
 <div class="popup" *ngIf="isPopupShow">
     <p>Sitemizin nasıl kullanıldıgını</p>
     <p> keşfetmek istermisiniz</p>
-    <button class="btn btn-success">Keşfet</button>
-    <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="0" aria-valuemin="0"
+    <button (click)="showDriver()" class="btn btn-warning">
+        <i class="fa-solid fa-info"></i>
+        Keşfet
+    </button>
+    <div class="progress mt-1" role="progressbar" aria-label="Basic example" aria-valuenow="0" aria-valuemin="0"
         aria-valuemax="100">
-        <div class="progress-bar" style="width: 0%"></div>
+        <div class="progress-bar" [ngStyle]="{width:processBar+'%'}"></div>
     </div>
 </div>

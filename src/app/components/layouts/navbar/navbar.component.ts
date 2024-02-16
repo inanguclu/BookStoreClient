@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
-import { driver } from "driver.js";
 
 
 @Component({
@@ -29,54 +28,7 @@ export class NavbarComponent {
 
   }
 
-  showDriver(){
-    const driverObj = driver({
-      popoverClass:"driverjs-theme",
-      showProgress: true,
-      steps: [
-        {
-          element: '#categories',
-          popover: {
-            title: 'Categories',
-            description: 'Bu kısımdan Kategorileri seçebilirsiniz'
-          }
-        },
-        {
-          element: '#bookSearch',
-          popover: {
-            title: 'Book Search',
-            description: 'Bu kısımdan kitap arayabilirsiniz'
-          }
-        },
-        {
-          element: '#book0',
-          popover: {
-            title: 'Book',
-            description: 'Bu kısımdan kitap detaylarını görebilirsiniz'
-          }
-        },
-        {
-          element: '#addShoppingCartBtn0',
-          popover: {
-            title: 'Add Shopping Cart',
-            description: 'Bu kısımdan kitabı sepete ekleyebilirsiniz'
-          }
-        }
-        ,
-        {
-          element: '#language',
-          popover: {
-            title: 'Language',
-            description: 'Buradan dili değiştirebilirsiniz'
-          }
-        }
-    
-      ]
-    });
-
-    driverObj.drive();
-  }
-
+ 
   switchLanguage(event: any) {
     localStorage.setItem("language", event.target.value)
     this.language = event.target.value;
