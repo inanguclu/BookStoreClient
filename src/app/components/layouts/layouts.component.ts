@@ -14,6 +14,10 @@ export class LayoutsComponent {
 
 
   constructor() {
+    
+  }
+
+  showDriverPopup(){
     setTimeout(() => {
       this.changePopupShow();
      this.interval= setInterval(() => {
@@ -28,6 +32,7 @@ export class LayoutsComponent {
       }
     }, 8000);
   }
+
 
   showDriver() {
     const driverObj = driver({
@@ -78,8 +83,6 @@ export class LayoutsComponent {
 
     this.changePopupShow();
   }
-
-
 
   changePopupShow() {
     this.isPopupShow = !this.isPopupShow;
