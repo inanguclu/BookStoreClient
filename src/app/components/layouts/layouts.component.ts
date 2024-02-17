@@ -8,31 +8,11 @@ import { driver } from "driver.js";
   styleUrls: ['./layouts.component.css']
 })
 export class LayoutsComponent {
-  isPopupShow: boolean = false;
-  processBar: number = 0;
-  interval:any;
-
+  
 
   constructor() {
     
   }
-
-  showDriverPopup(){
-    setTimeout(() => {
-      this.changePopupShow();
-     this.interval= setInterval(() => {
-        this.processBar += 2;
-      }, 200)
-    }, 2000);
-
-    setTimeout(() => {
-      clearInterval(this.interval);
-      if (this.isPopupShow) {
-        this.changePopupShow();
-      }
-    }, 8000);
-  }
-
 
   showDriver() {
     const driverObj = driver({
@@ -84,7 +64,5 @@ export class LayoutsComponent {
     this.changePopupShow();
   }
 
-  changePopupShow() {
-    this.isPopupShow = !this.isPopupShow;
-  }
+  
 }
