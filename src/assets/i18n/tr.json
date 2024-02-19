@@ -15,6 +15,10 @@
     "paymentIsSuccessful":"Ödeme işlemi başarıyla tamamlandı",
     "addBookInShoppingCartIsSuccessful": "Kitap başarıyla sepete eklendi",
     "noBooksInShoppingCart": "Sepette Ürün Bulunmuyor !",
+    "howWeCanUseThisWebSite":"Siteyi nasıl kullanacagınızı",
+    "wouldYouLikeToDiscover":"Keşfetmek istermisiniz?",
+    "discover":"Keşfet",
+    "notShowAgain":"Tekrar gösterme",
     "Bilim": "Bilim",
     "remove": {
         "doYouWantToDeleted": "Silmek İstiyormusunuz ?",
