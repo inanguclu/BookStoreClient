@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { driver } from "driver.js";
+import { PopupService } from 'src/app/services/popup.service';
 
 
 @Component({
@@ -10,7 +11,9 @@ import { driver } from "driver.js";
 export class LayoutsComponent {
   
 
-  constructor() {
+  constructor(
+    public popup:PopupService
+  ) {
     
   }
 
@@ -61,7 +64,7 @@ export class LayoutsComponent {
 
     driverObj.drive();
 
-    this.changePopupShow();
+    this.popup.changePopupShow();
   }
 
   

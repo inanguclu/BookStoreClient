@@ -9,6 +9,7 @@ import { AddShoppingCartModel } from 'src/app/models/add-shopping-cart.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { ErrorService } from 'src/app/services/error.service';
 import { driver } from "driver.js";
+import { PopupService } from 'src/app/services/popup.service';
 
 
 
@@ -36,7 +37,8 @@ export class HomeComponent {
     private swal: SwalService,
     private translate: TranslateService,
     private auth: AuthService,
-    private error: ErrorService
+    private error: ErrorService,
+    private popup:PopupService
 
   ) {
     if (localStorage.getItem("request")) {
@@ -115,6 +117,7 @@ export class HomeComponent {
           this.categories = res
           this.getAll();
           this.isLoading = false;
+          this.popup.showDriverPopup();
         },
         error: (err: HttpErrorResponse) => {
           this.error.errorHandler(err);

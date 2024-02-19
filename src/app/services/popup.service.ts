@@ -11,7 +11,7 @@ export class PopupService {
   isPopupShow: boolean = false;
 
 
-  constructor() {
+  constructor() {}
 
     showDriverPopup(){
       setTimeout(() => {
@@ -32,5 +32,5 @@ export class PopupService {
     changePopupShow() {
       this.isPopupShow = !this.isPopupShow;
     }
-   }
+   
 }
