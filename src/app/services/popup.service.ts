@@ -5,32 +5,37 @@ import { Injectable } from '@angular/core';
 })
 export class PopupService {
 
-  
+
   processBar: number = 0;
-  interval:any;
+  interval: any;
   isPopupShow: boolean = false;
+  notShowThisPopup:boolean=false;
 
 
-  constructor() {}
+  constructor() { }
 
-    showDriverPopup(){
-      setTimeout(() => {
+  showDriverPopup() {
+    setTimeout(() => {
+      this.changePopupShow();
+      this.interval = setInterval(() => {
+        this.processBar += 2;
+      }, 200)
+    }, 2000);
+
+    setTimeout(() => {
+      clearInterval(this.interval);
+      if (this.isPopupShow) {
         this.changePopupShow();
-       this.interval= setInterval(() => {
-          this.processBar += 2;
-        }, 200)
-      }, 2000);
-  
-      setTimeout(() => {
-        clearInterval(this.interval);
-        if (this.isPopupShow) {
-          this.changePopupShow();
-        }
-      }, 8000);
-    }
+      }
+    }, 8000);
+  }
 
-    changePopupShow() {
-      this.isPopupShow = !this.isPopupShow;
-    }
-   
+  changePopupShow() {
+    this.isPopupShow = !this.isPopupShow;
+  }
+  notShowAgain() {
+    localStorage.setItem("notShowDiscoverPopupAgain","true");
+    this.notShowThisPopup=true;
+
+  }
 }

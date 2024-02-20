@@ -17,10 +17,7 @@ export class LayoutsComponent {
     
   }
 
-  notShowAgain(){
-    
-  }
-
+ 
   showDriver() {
     const driverObj = driver({
       popoverClass: "driverjs-theme",
