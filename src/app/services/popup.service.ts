@@ -12,7 +12,11 @@ export class PopupService {
   notShowThisPopup:boolean=false;
 
 
-  constructor() { }
+  constructor() {
+    if(localStorage.getItem("notShowDiscoverPopupAgain")){
+      this.notShowThisPopup=true;
+    }
+   }
 
   showDriverPopup() {
     setTimeout(() => {
