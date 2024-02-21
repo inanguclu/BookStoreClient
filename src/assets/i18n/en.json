@@ -19,7 +19,7 @@
     "wouldYouLikeToDiscover":"How to use this website?",
     "discover":"Discover",
     "notShowAgain":"Not show again",
-    "bookQuantityIsEnough":"Book out of stock!",
+    "bookQuantityIsNotEnough":"Book out of stock!",
     "remove":{
          "doYouWantToDeleted":"Do You Want To Deleted ?",
          "cancelBtn":"Cancel",

@@ -19,7 +19,7 @@
     "wouldYouLikeToDiscover":"Keşfetmek istermisiniz?",
     "discover":"Keşfet",
     "notShowAgain":"Tekrar gösterme",
-    "bookQuantityIsEnough":"Kitap stokta kalmadı",
+    "bookQuantityIsNotEnough":"Kitap stokta kalmadı",
     "remove": {
         "doYouWantToDeleted": "Silmek İstiyormusunuz ?",
         "cancelBtn": "Vazgeç",
