@@ -74,12 +74,18 @@ export class HomeComponent {
         }
       });
     } else {
-      this.shopping.shoppingCarts.push(book);
+      if(book.quantity<1){
+        this.translate.get("bookQuantityIsNotEnough").subscribe(res=>{
+          this.swal.callToast(res,"error");
+        });
+      }else{
+        this.shopping.shoppingCarts.push(book);
       localStorage.setItem("shoppingCarts", JSON.stringify(this.shopping.shoppingCarts));
       this.translate.get("addBookInShoppingCartIsSuccessful").subscribe(res => {
         this.swal.callToast(res);
       })
     };
+      }
   }
 
   feedData() {
