@@ -84,6 +84,7 @@ export class HomeComponent {
       this.translate.get("addBookInShoppingCartIsSuccessful").subscribe(res => {
         this.swal.callToast(res);
       })
+      book.quantity-=1;
     };
       }
   }
