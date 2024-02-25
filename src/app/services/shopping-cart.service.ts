@@ -29,8 +29,13 @@ export class ShoppingCartService {
     private spinner: NgxSpinnerService
   ) {
     this.checkLocalStoreForShoppingCarts();
-
   }
+
+
+  addShoppingCart(){
+    
+  }
+
 
   checkLocalStoreForShoppingCarts() {
     const shoppingCartsString = localStorage.getItem("shoppingCarts");

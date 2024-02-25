@@ -79,7 +79,16 @@ export class HomeComponent {
           this.swal.callToast(res,"error");
         });
       }else{
-        this.shopping.shoppingCarts.push(book);
+        const checkBookIsAlreadyExists=this.shopping.shoppingCarts.filter(p=>p.Id==book.id)[0];
+        
+        if(checkBookIsAlreadyExists!==null){
+          this.shopping.shoppingCarts.filter(p=>p.Id==book.id)[0].quantity+=1
+        }else{
+          const newBook={...book};
+          newBook.quantity=1;
+          this.shopping.shoppingCarts.push(newBook);
+        }
+        
       localStorage.setItem("shoppingCarts", JSON.stringify(this.shopping.shoppingCarts));
       this.translate.get("addBookInShoppingCartIsSuccessful").subscribe(res => {
         this.swal.callToast(res);
