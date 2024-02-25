@@ -9,16 +9,19 @@ export class PopupService {
   processBar: number = 0;
   interval: any;
   isPopupShow: boolean = false;
-  notShowThisPopup:boolean=false;
+  notShowThisPopup: boolean = false;
 
 
   constructor() {
-    if(localStorage.getItem("notShowDiscoverPopupAgain")){
-      this.notShowThisPopup=true;
+    if (localStorage.getItem("notShowDiscoverPopupAgain")) {
+      this.notShowThisPopup = true;
     }
-   }
+  }
 
   showDriverPopup() {
+    if (!this.notShowThisPopup) {
+
+    }
     setTimeout(() => {
       this.changePopupShow();
       this.interval = setInterval(() => {
@@ -30,6 +33,7 @@ export class PopupService {
       clearInterval(this.interval);
       if (this.isPopupShow) {
         this.changePopupShow();
+        if(this.isPopupShow) clearInterval(this.interval);
       }
     }, 8000);
   }
@@ -38,8 +42,8 @@ export class PopupService {
     this.isPopupShow = !this.isPopupShow;
   }
   notShowAgain() {
-    localStorage.setItem("notShowDiscoverPopupAgain","true");
-    this.notShowThisPopup=true;
+    localStorage.setItem("notShowDiscoverPopupAgain", "true");
+    this.notShowThisPopup = true;
 
   }
 }

@@ -38,7 +38,7 @@ export class HomeComponent {
     private translate: TranslateService,
     private auth: AuthService,
     private error: ErrorService,
-    private popup:PopupService
+    private popup: PopupService
 
   ) {
     if (localStorage.getItem("request")) {
@@ -51,7 +51,7 @@ export class HomeComponent {
   }
 
 
-  
+
 
 
   addShoppingCart(book: BookModel) {
@@ -74,28 +74,28 @@ export class HomeComponent {
         }
       });
     } else {
-      if(book.quantity<1){
-        this.translate.get("bookQuantityIsNotEnough").subscribe(res=>{
-          this.swal.callToast(res,"error");
+      if (book.quantity < 1) {
+        this.translate.get("bookQuantityIsNotEnough").subscribe(res => {
+          this.swal.callToast(res, "error");
         });
-      }else{
-        const checkBookIsAlreadyExists=this.shopping.shoppingCarts.filter(p=>p.Id==book.id)[0];
-        
-        if(checkBookIsAlreadyExists!==null){
-          this.shopping.shoppingCarts.filter(p=>p.Id==book.id)[0].quantity+=1
-        }else{
-          const newBook={...book};
-          newBook.quantity=1;
+      } else {
+        const checkBookIsAlreadyExists = this.shopping.shoppingCarts.filter(p => p.Id == book.id)[0];
+
+        if (checkBookIsAlreadyExists !== null) {
+          this.shopping.shoppingCarts.filter(p => p.Id == book.id)[0].quantity += 1;
+        } else {
+          const newBook = { ...book };
+          newBook.quantity = 1;
           this.shopping.shoppingCarts.push(newBook);
         }
-        
-      localStorage.setItem("shoppingCarts", JSON.stringify(this.shopping.shoppingCarts));
-      this.translate.get("addBookInShoppingCartIsSuccessful").subscribe(res => {
-        this.swal.callToast(res);
-      })
-      book.quantity-=1;
-    };
-      }
+
+        localStorage.setItem("shoppingCarts", JSON.stringify(this.shopping.shoppingCarts));
+        this.translate.get("addBookInShoppingCartIsSuccessful").subscribe(res => {
+          this.swal.callToast(res);
+        })
+        book.quantity -= 1;
+      };
+    }
   }
 
   feedData() {
