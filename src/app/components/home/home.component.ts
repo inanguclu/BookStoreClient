@@ -81,7 +81,7 @@ export class HomeComponent {
       } else {
         const checkBookIsAlreadyExists = this.shopping.shoppingCarts.filter(p => p.Id == book.id)[0];
 
-        if (checkBookIsAlreadyExists !== null) {
+        if (checkBookIsAlreadyExists !== undefined) {
           this.shopping.shoppingCarts.filter(p => p.Id == book.id)[0].quantity += 1;
         } else {
           const newBook = { ...book };
