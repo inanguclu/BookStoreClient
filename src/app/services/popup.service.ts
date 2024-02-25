@@ -25,6 +25,8 @@ export class PopupService {
     setTimeout(() => {
       this.changePopupShow();
       this.interval = setInterval(() => {
+        console.log(this.processBar);
+        
         this.processBar += 2;
       }, 200)
     }, 2000);
