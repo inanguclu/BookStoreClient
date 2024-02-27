@@ -32,6 +32,18 @@ export class ShoppingCartService {
   }
 
 
+  //https://localhost:7127/api/ShoppingCarts/ChangeBookQuantity/
+  changeBookQuantity(bookId:number,quantity:number) {
+this.http.get(`https://localhost:7127/api/ShoppingCarts/ChangeBookQuantity/${bookId}/${quantity}`)
+.subscribe({
+  next:(res:any)=>{
+
+  },
+  error:(err:HttpErrorResponse)=>{
+    this.error.errorHandler(err);
+  }
+})
+  }
 
 
   checkLocalStoreForShoppingCarts() {
@@ -52,7 +64,7 @@ export class ShoppingCartService {
             this.shoppingCarts = res;
             this.calcTotal();
           },
-          error:(err:HttpErrorResponse)=>{
+          error: (err: HttpErrorResponse) => {
             this.error.errorHandler(err);
           }
         })
