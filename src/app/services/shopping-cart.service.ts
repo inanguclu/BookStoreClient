@@ -34,7 +34,7 @@ export class ShoppingCartService {
 
 
   changeBookQuantityInShoppingCart(bookId: number, quantity: number) {
-    this.http.get(`https://localhost:7127/api/ShoppingCarts/ChangeBookQuantity/${bookId}/${quantity}`)
+    this.http.get(`https://localhost:7127/api/ShoppingCarts/changeBookQuantityInShoppingCart/${bookId}/${quantity}`)
       .subscribe({
         next: (res: any) => {
           this.getAllShoppingCarts();
