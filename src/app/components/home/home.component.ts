@@ -64,7 +64,7 @@ export class HomeComponent {
 
       this.http.post("https://localhost:7127/api/ShoppingCarts/Add", data).subscribe({
         next: (res: any) => {
-          this.shopping.checkLocalStoreForShoppingCarts();
+          this.shopping.getAllShoppingCarts();
           this.translate.get("addBookInShoppingCartIsSuccessful").subscribe(res => {
             this.swal.callToast(res);
           });

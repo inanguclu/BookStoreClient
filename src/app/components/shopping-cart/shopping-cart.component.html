@@ -32,7 +32,9 @@
                 </div>
                 <div class="col-lg-3 col-12">
                     <div>
-                        <input [(ngModel)]="s.quantity" type="number" class="form-control">
+                        <button class="btn btn-danger" (click)="shopping.changeBookQuantityInShoppingCart(s.bookId,s.quantity-1)">-</button>
+                        <p class="alert alert-warning" [innerHtml]="s.quantity"></p>
+                        <button class="btn btn-success" (click)="shopping.changeBookQuantityInShoppingCart(s.bookId,s.quantity+1)">+</button>
                     </div>
                 </div>
                 <div class="col-lg-3 col-12 text-center d-flex justify-content-center" style="flex-direction: column;">

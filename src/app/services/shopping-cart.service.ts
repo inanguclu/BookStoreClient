@@ -28,25 +28,25 @@ export class ShoppingCartService {
     private error: ErrorService,
     private spinner: NgxSpinnerService
   ) {
-    this.checkLocalStoreForShoppingCarts();
+    this.getAllShoppingCarts();
   }
 
 
-  //https://localhost:7127/api/ShoppingCarts/ChangeBookQuantity/
-  changeBookQuantity(bookId:number,quantity:number) {
-this.http.get(`https://localhost:7127/api/ShoppingCarts/ChangeBookQuantity/${bookId}/${quantity}`)
-.subscribe({
-  next:(res:any)=>{
 
-  },
-  error:(err:HttpErrorResponse)=>{
-    this.error.errorHandler(err);
+  changeBookQuantityInShoppingCart(bookId: number, quantity: number) {
+    this.http.get(`https://localhost:7127/api/ShoppingCarts/ChangeBookQuantity/${bookId}/${quantity}`)
+      .subscribe({
+        next: (res: any) => {
+          this.getAllShoppingCarts();
+        },
+        error: (err: HttpErrorResponse) => {
+          this.error.errorHandler(err);
+        }
+      })
   }
-})
-  }
 
 
-  checkLocalStoreForShoppingCarts() {
+  getAllShoppingCarts() {
     const shoppingCartsString = localStorage.getItem("shoppingCarts");
     if (localStorage.getItem("shoppingCarts")) {
       const carts: string | null = (localStorage.getItem("shoppingCarts"));
@@ -120,7 +120,7 @@ this.http.get(`https://localhost:7127/api/ShoppingCarts/ChangeBookQuantity/${boo
       this.swal.callSwall(res.doYouWantToDeleted, res.cancelBtn, res.confirmBtn, () => {
         if (localStorage.getItem("response")) {
           this.http.get("https://localhost:7127/api/ShoppingCarts/RemoveById/" + this.shoppingCarts[index]?.shoppingCartId).subscribe(res => {
-            this.checkLocalStoreForShoppingCarts();
+            this.getAllShoppingCarts();
           })
 
         } else {
