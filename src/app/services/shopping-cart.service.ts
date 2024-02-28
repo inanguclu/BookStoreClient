@@ -52,6 +52,7 @@ export class ShoppingCartService {
       const carts: string | null = (localStorage.getItem("shoppingCarts"));
       if (carts !== null) {
         this.shoppingCarts = JSON.parse(carts)
+        this.calcTotal();
       }
     } else {
       this.shoppingCarts = [];
@@ -88,7 +89,8 @@ export class ShoppingCartService {
 
     this.prices = [];
     for (let s of this.shoppingCarts) {
-      this.prices.push({ ...s.price });
+      const newPrice = {value:(s.price.value * s.quantity), currency:s.price.currency};
+      this.prices.push({ ...newPrice });
     }
 
 
