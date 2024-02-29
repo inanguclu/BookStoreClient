@@ -45,7 +45,14 @@ export class ShoppingCartService {
           }
         })
     }else{
-      this.shoppingCarts.filter(p=>p.id===bookId)[0].quantity=quantity;
+      if(quantity<=0){
+        const index=this.shoppingCarts.findIndex(p=>p.id==bookId)
+        this.removeByIndex(index);
+      }else{
+        
+        this.shoppingCarts.filter(p=>p.id===bookId)[0].quantity=quantity;
+      }
+      
     }
 
   }
