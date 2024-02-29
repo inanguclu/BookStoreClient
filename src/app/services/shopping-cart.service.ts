@@ -34,15 +34,20 @@ export class ShoppingCartService {
 
 
   changeBookQuantityInShoppingCart(bookId: number, quantity: number) {
-    this.http.get(`https://localhost:7127/api/ShoppingCarts/changeBookQuantityInShoppingCart/${bookId}/${quantity}`)
-      .subscribe({
-        next: (res: any) => {
-          this.getAllShoppingCarts();
-        },
-        error: (err: HttpErrorResponse) => {
-          this.error.errorHandler(err);
-        }
-      })
+    if (localStorage.getItem("response")) {
+      this.http.get(`https://localhost:7127/api/ShoppingCarts/changeBookQuantityInShoppingCart/${bookId}/${quantity}`)
+        .subscribe({
+          next: (res: any) => {
+            this.getAllShoppingCarts();
+          },
+          error: (err: HttpErrorResponse) => {
+            this.error.errorHandler(err);
+          }
+        })
+    }else{
+      this.shoppingCarts.filter(p=>p.id===bookId)[0].quantity=quantity;
+    }
+
   }
 
 
@@ -89,7 +94,7 @@ export class ShoppingCartService {
 
     this.prices = [];
     for (let s of this.shoppingCarts) {
-      const newPrice = {value:(s.price.value * s.quantity), currency:s.price.currency};
+      const newPrice = { value: (s.price.value * s.quantity), currency: s.price.currency };
       this.prices.push({ ...newPrice });
     }
 
