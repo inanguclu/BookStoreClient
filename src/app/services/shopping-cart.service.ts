@@ -44,15 +44,23 @@ export class ShoppingCartService {
             this.error.errorHandler(err);
           }
         })
-    }else{
-      if(quantity<=0){
-        const index=this.shoppingCarts.findIndex(p=>p.id==bookId)
+    } else {
+      if (quantity <= 0) {
+        const index = this.shoppingCarts.findIndex(p => p.id == bookId)
         this.removeByIndex(index);
-      }else{
-        
-        this.shoppingCarts.filter(p=>p.id===bookId)[0].quantity=quantity;
+      } else {
+        this.http.get(`https://localhost:7127/api/ShoppingCarts/CheckBookQuantityIsAvailable/${bookId}/${quantity}`)
+          .subscribe({
+            next: (res: any) => {
+              this.shoppingCarts.filter(p => p.id === bookId)[0].quantity = quantity;
+            },
+            error:(err:HttpErrorResponse)=>{
+              this.error.errorHandler(err);
+            }
+          })
+
       }
-      
+
     }
 
   }
