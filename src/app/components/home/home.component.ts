@@ -90,6 +90,7 @@ export class HomeComponent {
           this.shopping.shoppingCarts.push(newBook);
         }
 
+        this.shopping.calcTotal();
         localStorage.setItem("shoppingCarts", JSON.stringify(this.shopping.shoppingCarts));
         this.translate.get("addBookInShoppingCartIsSuccessful").subscribe(res => {
           this.swal.callToast(res);
