@@ -94,9 +94,8 @@ export class HomeComponent {
         localStorage.setItem("shoppingCarts", JSON.stringify(this.shopping.shoppingCarts));
         this.translate.get("addBookInShoppingCartIsSuccessful").subscribe(res => {
           this.swal.callToast(res);
-        })
-        book.quantity -= 1;
-      };
+        });
+      }
     }
   }
 
