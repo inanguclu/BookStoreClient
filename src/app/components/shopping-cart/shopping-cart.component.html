@@ -9,7 +9,7 @@
     </div>
 </div>
 
-<h1 *ngIf="shopping.shoppingCarts.length" class="alert alert-danger text-center ">{{'noBooksInShoppingCart'|translate}}</h1>
+<h1 *ngIf="shopping.shoppingCarts.length<1" class="alert alert-danger text-center ">{{'noBooksInShoppingCart'|translate}}</h1>
 
 <div class="row mt-4" *ngIf="shopping.shoppingCarts.length > 0">
     <div class="col-lg-9 col-12">
