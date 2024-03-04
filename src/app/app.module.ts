@@ -22,6 +22,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { ZoomDirective } from './directives/zoom.directive';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { UnderMaintananceComponent } from './components/under-maintanance/under-maintanance.component';
 
 
 
@@ -41,6 +42,7 @@ export function HttpLoaderFactory(http:HttpClient){
     ZoomDirective,
     LoginComponent,
     RegisterComponent,
+    UnderMaintananceComponent,
    
     
   ],
