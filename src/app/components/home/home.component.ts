@@ -67,7 +67,6 @@ export class HomeComponent {
           this.shopping.getAllShoppingCarts();
           this.translate.get("addBookInShoppingCartIsSuccessful").subscribe(res => {
             this.swal.callToast(res);
-            book.quantity-=1;
           });
         },
         error: (err: HttpErrorResponse) => {
