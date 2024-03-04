@@ -12,6 +12,7 @@
     "summary":"Summary",
     "apiNotAvailable":"Api is bussy right now",
     "apiNotFound":"Api not found",
+    "wereWorkingOn":"We encountered an error we're working on that. thanks for your understand",
     "paymentIsSuccessful":"Payment is successful",
     "errorStatusNotFound":"We encountered an unknown error. Please contact with admin!",
     "noBooksInShoppingCart":"No book in shopping cart !",
