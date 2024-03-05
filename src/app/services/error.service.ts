@@ -23,6 +23,7 @@ export class ErrorService {
       case 0:
         this.translate.get("apiNotAvailable").subscribe(res => {
           this.swal.callToast(res, "error")
+          this.router.navigateByUrl("/under-maintenance")
 
         });
         break;
