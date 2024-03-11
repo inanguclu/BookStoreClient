@@ -110,6 +110,11 @@
                     </div>
                     <div class="card-body detail">
                         <button *ngIf="b.quantity<=0" class="btn btn-danger text-center w-100" disabled type="button">
+                            <ul>
+                                <li *ngFor="let c of categories">
+
+                                </li>
+                            </ul>
                             <i class="fa-solid fa-hourglass me-1"></i>
                             <span>{{'bookQuantityIsNotEnough'|translate}}</span>
                         </button>
