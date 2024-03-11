@@ -107,14 +107,12 @@
                     <div class="card-header">
                         <h5 class="card-title">{{b.title}} </h5>
                         <p>{{b.author}}</p>
+                        <ul class="d-flex align-items-center justify-content-center list-unstyled">
+                            <li>{{b.categories}}</li>
+                        </ul>
                     </div>
                     <div class="card-body detail">
                         <button *ngIf="b.quantity<=0" class="btn btn-danger text-center w-100" disabled type="button">
-                            <ul>
-                                <li *ngFor="let c of categories">
-
-                                </li>
-                            </ul>
                             <i class="fa-solid fa-hourglass me-1"></i>
                             <span>{{'bookQuantityIsNotEnough'|translate}}</span>
                         </button>
