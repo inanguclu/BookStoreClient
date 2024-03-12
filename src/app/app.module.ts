@@ -23,6 +23,7 @@ import { ZoomDirective } from './directives/zoom.directive';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { UnderMaintenanceComponent } from './components/under-maintenance/under-maintenance.component';
+import { OrderComponent } from './components/order/order.component';
 
 
 
@@ -43,6 +44,7 @@ export function HttpLoaderFactory(http:HttpClient){
     LoginComponent,
     RegisterComponent,
     UnderMaintenanceComponent,
+    OrderComponent,
    
     
   ],
