@@ -16,8 +16,8 @@ export class OrderComponent {
   ){}
 
 getAll(){
-  
+
 }
 
 
-
+}
