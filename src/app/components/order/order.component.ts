@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { OrderModel } from 'src/app/models/order-model';
 
 
 @Component({
@@ -7,7 +8,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./order.component.css']
 })
 export class OrderComponent {
-  orders:
+  orders:OrderModel[]=[];
 
 }
 
