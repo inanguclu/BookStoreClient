@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { BookModel, Money } from 'src/app/models/book.model';
+import { OrderStatusEnum } from 'src/app/models/order-status-enum';
+import { OrderStatusModel } from 'src/app/models/order-status-model';
 
 @Component({
   selector: 'app-order',
@@ -28,9 +30,5 @@ export class OrderModel {
   raiting: number = 0;
 
 }
-export class OrderStatusModel {
-  id: number = 0;
-  orderNumber: string = "";
-  status = "";
-  statusDate: string = ""
-}
+
+
